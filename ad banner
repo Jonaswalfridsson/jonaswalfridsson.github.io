@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad Banner</title>
+    <style>
+        .ad-banner {
+            width: 100%;
+            height: 150px;
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .ad-banner img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="ad-banner">
+        <a href="https://jonaswalfridsson.se">
+            <img src="https://jonaswalfridsson.github.io/avatar_hat.jpg" alt="Ad Banner">
+        </a>
+        <p>Behöver du en föreläsare inom dyskalkyli? Besök logoped Jonas Walfridssons hemsida för mer information!</p>
+    </div>
+</body>
+</html>
