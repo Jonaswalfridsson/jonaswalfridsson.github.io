@@ -21,21 +21,34 @@
   <style>
     /* --- FÄRGTEMA & VARIABLER --- */
     :root {
-        /* En djup, professionell petroleum/havsgrön färg */
         --accent-color: #2a6f75; 
         --text-color: #555;
+        --page-max-width: 1200px; /* Maximal bredd på innehållet */
     }
 
-    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+    /* Grundinställningar för inramad design */
+    html {
+        background-color: #f0f2f5; /* Ljusgrå bakgrund utanför ramen */
+    }
+
+    body {
+        font-family: "Lato", sans-serif;
+        color: var(--text-color);
+        line-height: 2.0;
+        max-width: var(--page-max-width);
+        margin: 0 auto; /* Centrera sidan */
+        background-color: white; /* Vit bakgrund inuti ramen */
+        box-shadow: 0 0 20px rgba(0,0,0,0.1); /* Snygg skugga runt sidan */
+    }
     
-    body, html {
-      height: 100%;
-      color: var(--text-color);
-      line-height: 2.0; /* Mer luft i texten (tidigare 1.8) */
-      scroll-behavior: smooth;
+    /* Fix för att menyn ska hålla sig inom ramen */
+    .w3-top {
+        max-width: var(--page-max-width);
+        left: 50%;
+        transform: translateX(-50%);
     }
 
-    /* Modernare rubriker: Tunnare men tydliga */
+    /* Modernare rubriker */
     h3 {
         font-weight: 300;
         letter-spacing: 2px;
@@ -45,12 +58,12 @@
         text-transform: uppercase;
     }
 
-    /* Accentfärg på länkar och ikoner */
+    /* Accentfärg */
     a { color: var(--accent-color); text-decoration: none; }
     a:hover { text-decoration: underline; }
     .w3-text-accent { color: var(--accent-color) !important; }
 
-    /* CTA-Knapp (Call to Action) */
+    /* CTA-Knapp */
     .btn-cta {
         background-color: var(--accent-color);
         color: white !important;
@@ -78,19 +91,15 @@
       background-size: cover;
     }
 
-    /* First image (Logo. Full height) */
+    /* Bilder */
     .bgimg-1 {
       background-image: url('jonaswalfridsson.github.io/Cloud.jpeg');
-      min-height: 100%;
+      min-height: 100vh; /* Täcker höjden men inte bredden utanför ramen */
     }
-
-    /* Second image (Portfolio separator) */
     .bgimg-2 {
       background-image: url('jonaswalfridsson.github.io/parallax2.jpg');
       min-height: 400px;
     }
-
-    /* Third image (Contact separator) */
     .bgimg-3 {
       background-image: url('jonaswalfridsson.github.io/parallax3.jpg');
       min-height: 400px;
@@ -113,7 +122,7 @@
     /* Video container */
     .video-container {
         position: relative;
-        padding-bottom: 56.25%; /* 16:9 ratio */
+        padding-bottom: 56.25%; 
         height: 0;
         overflow: hidden;
         max-width: 100%;
@@ -128,190 +137,6 @@
     }
 
     /* Footer styling */
-    footer i {
-        color: var(--accent-color);
-    }
+    footer i { color: var(--accent-color); }
 
-    /* Turn off parallax scrolling for tablets and phones */
-    @media only screen and (max-device-width: 1600px) {
-      .bgimg-1, .bgimg-2, .bgimg-3 {
-        background-attachment: scroll;
-        min-height: 400px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-<div class="w3-top">
-  <div class="w3-bar" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-      <i class="fa fa-bars"></i>
-    </a>
-    <a href="#home" class="w3-bar-item w3-button">HOME</a>
-    <a href="#about" class="w3-bar-item w3-button"><i class="fa fa-user"></i> OM</a>
-    <a href="#portfolio" class="w3-bar-item w3-button"><i class="fa fa-th"></i> UPPDRAG</a>
-    <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> KONTAKT</a>
-    
-    <a href="index_en.html" class="w3-bar-item w3-button w3-right" title="English">🇬🇧 English</a>
-    <a href="index_no.html" class="w3-bar-item w3-button w3-right" title="Norwegian">🇳🇴 Norsk</a>
-  </div>
-
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">OM</a>
-    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">UPPDRAG</a>
-    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">KONTAKT</a>
-    <a href="index_en.html" class="w3-bar-item w3-button" onclick="toggleFunction()">🇬🇧 English</a>
-    <a href="index_no.html" class="w3-bar-item w3-button" onclick="toggleFunction()">🇳🇴 Norsk</a>
-  </div>
-</div>
-
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
-      Jonas Walfridsson
-    </span>    
-  </div>
-</div>
-
-<div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center">Logoped, utredare och föreläsare inom dyskalkyli</h3>
-  
-  <div class="w3-row">
-    <div class="w3-col m6 w3-padding-large">
-      <p>Jag är logoped med spetskompetens inom utredning av räknesvårigheter/dyskalkyli och har arbetat med utredningar på Danderyds sjukhus sedan 2013.</p>
-      <p>Jag brinner för att sprida kunskap om räkne- och matematiksvårigheter inklusive dyskalkyli och är en flitigt anlitad föreläsare.</p>
-      <p>Jag har även haft förmånen att delta i medieinslag på temat i såväl SvD, SVT som TV4. Jag håller mig ständigt ajour om forskningsläget kring räkne- och matematiksvårigheter inklusive dyskalkyli.</p>
-      
-      <br>
-      <a href="#contact" class="btn-cta">BOKA FÖRELÄSNING / KONTAKT</a>
-
-    </div>
-    
-    <div class="w3-col m6 w3-center w3-padding-large">
-      <img src='jonaswalfridsson.github.io/avatar_hat.jpg' class="w3-round w3-image w3-card-4" alt="Foto på Jonas Walfridsson" width="500" height="333">
-    </div>
-  </div>
-</div>
-
-<div class="bgimg-2 w3-display-container w3-opacity-min">
-  <div class="w3-display-middle">
-    <span class="w3-xxlarge w3-text-white w3-wide">UPPDRAG</span>
-  </div>
-</div>
-
-<div class="w3-content w3-container w3-padding-64" id="portfolio">
-  
-  <h3 class="w3-center">Föreläsare</h3>
-  <ul class="custom-list">
-    <li>"Dyskalkyli-Matematikträffen 2025", Magma/Radish AB. 17 oktober 2025</li>
-    <li>"Matematiksvårigheter och tillgänglig matematikundervisning", Kompetento.</li>
-    
-    <li>"Webinarium för lärare om Dyskalkyli", Magma/Radish AB. Mars 2025</li>
-    <li>"Webinarium för lärare om Dyskalkyli", Magma/Radish AB. 27 november 2024</li>
-    <li>"Föreläsning om Dyskalkyli", Praktiska gymnasiet Helsingborg, Hösten 2024</li>
-    <li>"Om dyskalkyli", Skolportalens konferens, 4 oktober 2024</li>
-    <li><a href="https://www.magma.se/matematiktraffen" target="_blank">Expertpanel om dyskalkyli. Matematikträffen 2024</a>, Magma/Radish AB, 3 oktober 2024</li>
-    <li>"Föreläsning om Dyskalkyli", Lärande i Sverige AB, September 2024</li>
-    <li>"Dyskalkyli - aktuellt om kunskapsläge, utredning, diagnostik och åtgärder", Svenska dyslexistiftelsen, 23 augusti 2024</li>
-    <li>Specific Mathematical Difficulties, NORSMA-11, Köpenhamn november 2023</li>
-    <li>"Om dyskalkyli", SiS årliga skolkonferens, Oktober 2023</li>
-    <li>"Om dyskalkyli", Gymnasienätverk för matematiklärare i Uppsala, Oktober 2023</li>
-    <li>"Neurovetenskapliga perspektiv på matematikinlärning", Svenska Dyslexiföreningen, Mars 2023</li>
-  </ul>
-  
-  <hr class="w3-opacity">
-
-  <h3 class="w3-center">Utredare</h3>
-  <ul class="custom-list">
-    <li>Kontaktperson för det nationella logopediska dyskalkyli-nätverket.</li>
-    <li>Huvudförfattare till Fokusrapport om dyskalkyli (Region Stockholm 2015).</li>
-    <li>Faktagranskare för dyskalkyli på Vårdguiden/1177:s nationella redaktion.</li>
-    <li>Sakkunnig anlitad av UHR inför utredning om dyskalkyli vid Högskoleprovet.</li>
-  </ul>
-
-  <hr class="w3-opacity">
-
-  <h3 class="w3-center">Media</h3>
-  <div class="w3-center" style="max-width:800px; margin:auto;">
-    
-    <div class="video-container w3-card-4">
-        <iframe src="https://www.youtube.com/embed/nX6KYOZoLJM?si=pX08K1hiTNb8ro8f" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-
-    <ul class="custom-list">
-      <li>Allers: "Experten: Betydligt fler än man tror är drabbade" (2024-07-17)</li>
-      <li>SvD: <a href="https://www.svd.se/a/MnRjJK/leona-har-dyskalkyli-det-ar-som-dyslexi-fast-med-siffror" target="_blank">Faktaruta till "Leona har dyskalkyli"</a> (2024-06-14)</li>
-      <li>Funka Mera Norden: Logoped Live "Om dyskalkyli" (2023)</li>
-      <li>Nyheter Väst: <a href="https://www.svt.se/nyheter/lokalt/vast/logopeden-det-ar-skillnaden-pa-dyskalkyli-och-att-ha-svart-for-matte" target="_blank">"Det är skillnaden på dyskalkyli och att ha svårt för matte"</a> (2023)</li>
-      <li>TV4 Nyhetsmorgon: <a href="https://www.tv4.se/klipp/va/20055379/sa-bor-skolan-hjalpa-elever-med-dyskalkyli" target="_blank">"Så bör skolan hjälpa elever med dyskalkyli"</a> (2021)</li>
-      <li>SPSM Podcast Lika värde: <a href="https://www.spsm.se/stodmaterial-matematiksvarigheter/valkommen-till-stodmaterial-matematiksvarigheter/poddar/" target="_blank">Avsnitt 64: Dyskalkyli - så utreds det"</a> (2021)</li>
-      <li>SVT Gomorron: "Inslag om dyskalkyli" (2016)</li>
-    </ul>
-  </div>
-
-  <hr class="w3-opacity">
-
-  <h3 class="w3-center">Utbildare</h3>
-  <ul class="custom-list">
-      <li>Utredningsmetodik/Dyskalkyli på Psykologprogrammet, Linköpings Universitet.</li>
-      <li>Delansvarig för kursen "Dyskalkyli - utredning av matematiksvårigheter (7,5 hp)", Uppsala universitet.</li>
-  </ul>
-</div>
-
-<div class="bgimg-3 w3-display-container w3-opacity-min">
-  <div class="w3-display-middle">
-     <span class="w3-xxlarge w3-text-white w3-wide">KONTAKT</span>
-  </div>
-</div>
-
-<div class="w3-content w3-container w3-padding-64" id="contact">
-  <div class="w3-center w3-padding-32">
-    <div class="w3-large w3-margin-bottom">
-      <i class="fa fa-map-marker fa-fw w3-text-accent w3-xlarge w3-margin-right"></i> STOCKHOLM <br>
-      <i class="fa fa-envelope fa-fw w3-text-accent w3-xlarge w3-margin-right"></i> 
-      <a href="mailto:walfrid100@gmail.com">walfrid100@gmail.com</a><br>
-    </div>
-    <p>Välkommen att höra av dig vid förfrågningar.</p>
-    
-    <a href="mailto:walfrid100@gmail.com" class="btn-cta"><i class="fa fa-paper-plane"></i> SKICKA MAIL</a>
-  </div>
-</div>
-
-<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Till toppen</a>
-
-  <div class="w3-xlarge w3-section">
-    <a href="https://se.linkedin.com/in/jonas-walfridsson-45b07199" target="_blank" title="LinkedIn">
-        <i class="fa fa-linkedin w3-hover-opacity w3-text-accent"></i>
-    </a>
-  </div>
-
-  <p>Built by <a href="https://www.logopedjobb.se" title="Logopedjobb.se" target="_blank" class="w3-hover-text-green">Logopedjobb.se</a></p>
-</footer>
-
-<script>
-// Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-    }
-}
-
-// Toggle menu on small screens
-function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-</script>
-
-</body>
-</html>
+    /* Mobil
