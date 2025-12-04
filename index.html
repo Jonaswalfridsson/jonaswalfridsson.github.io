@@ -83,7 +83,6 @@
     /* --- EVENT CARDS --- */
     .event-container { max-width: 900px; margin: 0 auto; }
     
-    /* Uppdaterad CSS för att hantera både div och a taggar snyggt */
     .event-card {
         background-color: var(--light-bg);
         border-left: 5px solid var(--accent-color);
@@ -93,7 +92,7 @@
         display: flex; 
         flex-direction: column; 
         transition: transform 0.2s;
-        text-decoration: none !important; /* Tar bort understrykning från länk-kort */
+        text-decoration: none !important;
     }
     .event-card:hover { transform: translateX(5px); background-color: #fff; }
     
@@ -101,30 +100,20 @@
     .event-title { font-size: 1.1em; font-weight: 600; color: #333; margin-bottom: 2px; }
     .event-org { font-size: 0.95em; color: #777; font-style: italic; }
 
-    /* --- BILDHANTERING --- */
-    /* Här byter vi ut bilderna till den nya "color-explosion-of-numbers.jpg" */
+    /* --- BILDHANTERING (Cloud.jpeg) --- */
     .bgimg-1, .bgimg-2, .bgimg-3 {
       background-attachment: fixed;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+      /* Här pekar vi på din fil: Cloud.jpeg */
+      /* Om bilden inte syns, kontrollera att den ligger i samma mapp som index.html */
+      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('Cloud.jpeg');
     }
 
-    .bgimg-1 { 
-        /* Toppbilden */
-        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('jonaswalfridsson.github.io/color-explosion-of-numbers.jpg'); 
-        min-height: 100vh; 
-    }
-    .bgimg-2 { 
-        /* Mellanbild 1 */
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('jonaswalfridsson.github.io/color-explosion-of-numbers.jpg'); 
-        min-height: 400px; 
-    }
-    .bgimg-3 { 
-        /* Mellanbild 2 */
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('jonaswalfridsson.github.io/color-explosion-of-numbers.jpg'); 
-        min-height: 400px; 
-    }
+    .bgimg-1 { min-height: 100vh; }
+    .bgimg-2 { min-height: 400px; }
+    .bgimg-3 { min-height: 400px; }
 
     .w3-wide {letter-spacing: 10px;}
     
@@ -221,7 +210,7 @@
   <div class="event-container">
       
       <a href="https://matematikbiennalen2026.se/" target="_blank" class="event-card">
-          <span class="event-date">29 JAN 2026 (Kommande)</span>
+          <span class="event-date" data-i18n="date_biennalen">29 JAN 2026 (Kommande)</span>
           <span class="event-title">Matematikbiennalen 2026 <i class="fa fa-external-link"></i></span>
           <span class="event-org">Nationellt Centrum för Matematikutbildning (NCM) och lärarutbildningen vid Göteborgs universitet</span>
       </a>
@@ -280,20 +269,20 @@
   <h2 class="w3-center" data-i18n="cat_investigator" style="font-size:28px; margin-bottom:30px;">Utredare</h2>
   <div class="event-container">
       <div class="event-card">
-          <span class="event-title">Kontaktperson</span>
-          <span class="event-org">Nationella logopediska dyskalkyli-nätverket</span>
+          <span class="event-title" data-i18n="role_contact">Kontaktperson</span>
+          <span class="event-org" data-i18n="org_network">Nationella logopediska dyskalkyli-nätverket</span>
       </div>
       <div class="event-card">
-          <span class="event-title">Huvudförfattare</span>
-          <span class="event-org">Fokusrapport om dyskalkyli (Region Stockholm 2015)</span>
+          <span class="event-title" data-i18n="role_author">Huvudförfattare</span>
+          <span class="event-org" data-i18n="org_report">Fokusrapport om dyskalkyli (Region Stockholm 2015)</span>
       </div>
        <div class="event-card">
-          <span class="event-title">Faktagranskare</span>
-          <span class="event-org">Vårdguiden / 1177:s nationella redaktion</span>
+          <span class="event-title" data-i18n="role_reviewer">Faktagranskare</span>
+          <span class="event-org" data-i18n="org_1177">Vårdguiden / 1177:s nationella redaktion</span>
       </div>
       <div class="event-card">
-          <span class="event-title">Sakkunnig</span>
-          <span class="event-org">Anlitad av UHR inför utredning om dyskalkyli vid Högskoleprovet</span>
+          <span class="event-title" data-i18n="role_expert">Sakkunnig</span>
+          <span class="event-org" data-i18n="org_uhr">Anlitad av UHR inför utredning om dyskalkyli vid Högskoleprovet</span>
       </div>
   </div>
 
@@ -323,11 +312,11 @@
   <h2 class="w3-center" data-i18n="cat_educator" style="font-size:28px; margin-bottom:30px;">Utbildare</h2>
   <div class="event-container">
       <div class="event-card">
-          <span class="event-title">Utredningsmetodik / Dyskalkyli</span>
-          <span class="event-org">Psykologprogrammet, Linköpings Universitet</span>
+          <span class="event-title" data-i18n="edu_linkoping">Utredningsmetodik / Dyskalkyli</span>
+          <span class="event-org" data-i18n="org_linkoping">Psykologprogrammet, Linköpings Universitet</span>
       </div>
       <div class="event-card">
-          <span class="event-title">Delansvarig för kurs: Dyskalkyli - utredning av matematiksvårigheter (7,5 hp)</span>
+          <span class="event-title" data-i18n="edu_uppsala">Delansvarig för kurs: Dyskalkyli - utredning av matematiksvårigheter (7,5 hp)</span>
           <span class="event-org">Uppsala universitet</span>
       </div>
   </div>
@@ -369,21 +358,33 @@ const translations = {
         nav_contact: "KONTAKT",
         about_title: "Logoped, utredare och föreläsare inom dyskalkyli",
         about_text_1: "Jag är logoped med spetskompetens inom utredning av räknesvårigheter/dyskalkyli och har arbetat med utredningar på Danderyds sjukhus sedan 2013.",
-        about_text_2: "Jag brinner för att sprida kunskap om räkne- och matematiksvårigheter inklusive dyskalkyli och är en flitigt anlitad föreläsare.</p>
-      <p data-i18n="about_text_3">Jag har även haft förmånen att delta i medieinslag på temat i såväl SvD, SVT som TV4. Jag håller mig ständigt ajour om forskningsläget kring räkne- och matematiksvårigheter inklusive dyskalkyli.",
+        about_text_2: "Jag brinner för att sprida kunskap om räkne- och matematiksvårigheter inklusive dyskalkyli och är en flitigt anlitad föreläsare.",
+        about_text_3: "Jag har även haft förmånen att delta i medieinslag på temat i såväl SvD, SVT som TV4. Jag håller mig ständigt ajour om forskningsläget kring räkne- och matematiksvårigheter inklusive dyskalkyli.",
         btn_book: "BOKA FÖRELÄSNING / KONTAKT",
         cat_lecturer: "Föreläsare",
         cat_investigator: "Utredare",
         cat_educator: "Utbildare",
         contact_text: "Välkommen att höra av dig vid förfrågningar.",
-        btn_email: "SKICKA MAIL"
+        btn_email: "SKICKA MAIL",
+        date_biennalen: "29 JAN 2026 (Kommande)",
+        role_contact: "Kontaktperson",
+        org_network: "Nationella logopediska dyskalkyli-nätverket",
+        role_author: "Huvudförfattare",
+        org_report: "Fokusrapport om dyskalkyli (Region Stockholm 2015)",
+        role_reviewer: "Faktagranskare",
+        org_1177: "Vårdguiden / 1177:s nationella redaktion",
+        role_expert: "Sakkunnig",
+        org_uhr: "Anlitad av UHR inför utredning om dyskalkyli vid Högskoleprovet",
+        edu_linkoping: "Utredningsmetodik / Dyskalkyli",
+        org_linkoping: "Psykologprogrammet, Linköpings Universitet",
+        edu_uppsala: "Delansvarig för kurs: Dyskalkyli - utredning av matematiksvårigheter (7,5 hp)"
     },
     en: {
         nav_about: "ABOUT",
         nav_portfolio: "PORTFOLIO",
         nav_contact: "CONTACT",
-        about_title: "Speech Therapist, Researcher & Lecturer in Dyscalculia",
-        about_text_1: "I am a speech therapist specializing in the investigation of numeracy difficulties/dyscalculia, working at Danderyd Hospital since 2013.",
+        about_title: "Speech Language Pathologist, Investigator & Lecturer in Dyscalculia",
+        about_text_1: "I am a Speech Language Pathologist specializing in the investigation of numeracy difficulties/dyscalculia, working at Danderyd Hospital since 2013.",
         about_text_2: "I am passionate about spreading knowledge regarding mathematical difficulties and dyscalculia, and I am a frequently hired lecturer.",
         about_text_3: "I have also had the privilege of participating in media features on the topic in SvD, SVT, and TV4. I constantly keep myself updated on the research status regarding dyscalculia.",
         btn_book: "BOOK LECTURE / CONTACT",
@@ -391,7 +392,19 @@ const translations = {
         cat_investigator: "Investigator",
         cat_educator: "Educator",
         contact_text: "Welcome to contact me for inquiries.",
-        btn_email: "SEND EMAIL"
+        btn_email: "SEND EMAIL",
+        date_biennalen: "29 JAN 2026 (Upcoming)",
+        role_contact: "Contact Person",
+        org_network: "National SLP Dyscalculia Network",
+        role_author: "Lead Author",
+        org_report: "Focus Report on Dyscalculia (Region Stockholm 2015)",
+        role_reviewer: "Fact Reviewer",
+        org_1177: "Vårdguiden / 1177 (National Healthcare Guide)",
+        role_expert: "Expert Advisor",
+        org_uhr: "Engaged by UHR regarding dyscalculia investigation for the Swedish Scholastic Aptitude Test",
+        edu_linkoping: "Investigation Methodology / Dyscalculia",
+        org_linkoping: "Psychology Program, Linköping University",
+        edu_uppsala: "Co-responsible for course: Dyscalculia - investigation of mathematical difficulties (7.5 credits)"
     },
     no: {
         nav_about: "OM",
@@ -406,7 +419,19 @@ const translations = {
         cat_investigator: "Utreder",
         cat_educator: "Utdanner",
         contact_text: "Velkommen til å ta kontakt ved forespørsler.",
-        btn_email: "SEND E-POST"
+        btn_email: "SEND E-POST",
+        date_biennalen: "29 JAN 2026 (Kommende)",
+        role_contact: "Kontaktperson",
+        org_network: "Det nasjonale logopediske dyskalkuli-nettverket",
+        role_author: "Hovedforfatter",
+        org_report: "Fokusrapport om dyskalkuli (Region Stockholm 2015)",
+        role_reviewer: "Faktagransker",
+        org_1177: "Vårdguiden / 1177 (Nasjonalt helsenettsted)",
+        role_expert: "Sakkyndig",
+        org_uhr: "Engasjert av UHR angående utredning av dyskalkuli ved høyskoleprøven",
+        edu_linkoping: "Utredningsmetodikk / Dyskalkuli",
+        org_linkoping: "Psykologprogrammet, Linköpings Universitet",
+        edu_uppsala: "Delansvarlig for kurs: Dyskalkuli - utredning av matematikkvansker (7,5 hp)"
     }
 };
 
