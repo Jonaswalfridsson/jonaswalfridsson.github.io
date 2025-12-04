@@ -78,7 +78,7 @@
     }
     .btn-cta:hover { opacity: 0.9; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
 
-    /* --- NY DESIGN FÖR UPPDRAG (EVENT CARDS) --- */
+    /* --- EVENT CARDS DESIGN --- */
     .event-container {
         max-width: 900px;
         margin: 0 auto;
@@ -86,7 +86,7 @@
 
     .event-card {
         background-color: var(--light-bg);
-        border-left: 5px solid var(--accent-color); /* Färgkanten */
+        border-left: 5px solid var(--accent-color);
         padding: 15px 20px;
         margin-bottom: 15px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -96,7 +96,7 @@
     }
     
     .event-card:hover {
-        transform: translateX(5px); /* Liten rörelse vid hovring */
+        transform: translateX(5px);
         background-color: #fff;
     }
 
@@ -135,9 +135,21 @@
 
     .w3-wide {letter-spacing: 10px;}
     
-    /* Video */
+    /* --- VIDEO DESIGN (Uppdaterad) --- */
+    .video-wrapper {
+        max-width: 700px; /* Begränsar bredden på dator */
+        margin: 0 auto 30px auto; /* Centrerar videon */
+    }
+
     .video-container {
-        position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-bottom: 20px;
+        position: relative; 
+        padding-bottom: 56.25%; 
+        height: 0; 
+        overflow: hidden; 
+        width: 100%; 
+        background-color: #000; /* Svart bakgrund om videon laddar långsamt */
+        border-radius: 4px; /* Lite rundade hörn */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Snygg skugga */
     }
     .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
@@ -152,8 +164,8 @@
         .w3-top { max-width: 100%; left: 0; transform: none; width: 100%; }
         .bgimg-1, .bgimg-2, .bgimg-3 { background-attachment: scroll; min-height: 400px; }
         
-        /* Justering av cards för mobil */
         .event-card { margin-left: 10px; margin-right: 10px; }
+        .video-wrapper { max-width: 100%; padding: 0 10px; } /* Full bredd på mobil */
     }
   </style>
 </head>
@@ -307,11 +319,14 @@
 
   <h3 class="w3-center">Media</h3>
   <div class="w3-center" style="max-width:800px; margin:auto;">
-    <div class="video-container w3-card-4">
-        <iframe src="https://www.youtube.com/embed/nX6KYOZoLJM?si=pX08K1hiTNb8ro8f" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    
+    <div class="video-wrapper">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/nX6KYOZoLJM?si=pX08K1hiTNb8ro8f" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
     </div>
     
-    <div class="event-container" style="margin-top:20px;">
+    <div class="event-container">
         <div class="event-card">
             <span class="event-date">17 JULI 2024</span>
             <span class="event-title">Allers: "Experten: Betydligt fler än man tror är drabbade"</span>
