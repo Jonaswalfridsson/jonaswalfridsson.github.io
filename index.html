@@ -23,12 +23,13 @@
     :root {
         --accent-color: #2a6f75; 
         --text-color: #555;
-        --page-max-width: 1200px; /* Maximal bredd på innehållet */
+        --page-max-width: 1200px;
     }
 
-    /* Grundinställningar för inramad design */
+    /* Grundinställningar för Desktop (Inramad design) */
     html {
-        background-color: #f0f2f5; /* Ljusgrå bakgrund utanför ramen */
+        background-color: #f0f2f5;
+        overflow-x: hidden; 
     }
 
     body {
@@ -36,19 +37,22 @@
         color: var(--text-color);
         line-height: 2.0;
         max-width: var(--page-max-width);
-        margin: 0 auto; /* Centrera sidan */
-        background-color: white; /* Vit bakgrund inuti ramen */
-        box-shadow: 0 0 20px rgba(0,0,0,0.1); /* Snygg skugga runt sidan */
+        margin: 0 auto;
+        background-color: white;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        position: relative;
     }
     
-    /* Fix för att menyn ska hålla sig inom ramen */
+    /* Fix för menyn på Desktop */
     .w3-top {
         max-width: var(--page-max-width);
         left: 50%;
         transform: translateX(-50%);
+        width: 100%;
+        z-index: 1000;
     }
 
-    /* Modernare rubriker */
+    /* Rubriker */
     h3 {
         font-weight: 300;
         letter-spacing: 2px;
@@ -58,7 +62,7 @@
         text-transform: uppercase;
     }
 
-    /* Accentfärg */
+    /* Länkar & Accent */
     a { color: var(--accent-color); text-decoration: none; }
     a:hover { text-decoration: underline; }
     .w3-text-accent { color: var(--accent-color) !important; }
@@ -66,77 +70,3 @@
     /* CTA-Knapp */
     .btn-cta {
         background-color: var(--accent-color);
-        color: white !important;
-        padding: 14px 28px;
-        font-size: 16px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        display: inline-block;
-        margin-top: 20px;
-        text-decoration: none !important;
-        transition: opacity 0.3s;
-        letter-spacing: 1px;
-    }
-    .btn-cta:hover {
-        opacity: 0.9;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    /* Parallax Effect */
-    .bgimg-1, .bgimg-2, .bgimg-3 {
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    /* Bilder */
-    .bgimg-1 {
-      background-image: url('jonaswalfridsson.github.io/Cloud.jpeg');
-      min-height: 100vh; /* Täcker höjden men inte bredden utanför ramen */
-    }
-    .bgimg-2 {
-      background-image: url('jonaswalfridsson.github.io/parallax2.jpg');
-      min-height: 400px;
-    }
-    .bgimg-3 {
-      background-image: url('jonaswalfridsson.github.io/parallax3.jpg');
-      min-height: 400px;
-    }
-
-    .w3-wide {letter-spacing: 10px;}
-    
-    /* Anpassad lista */
-    .custom-list {
-        text-align: left;
-        max-width: 800px;
-        margin: 0 auto;
-        padding-left: 20px;
-        font-size: 16px;
-    }
-    .custom-list li {
-        margin-bottom: 12px;
-    }
-
-    /* Video container */
-    .video-container {
-        position: relative;
-        padding-bottom: 56.25%; 
-        height: 0;
-        overflow: hidden;
-        max-width: 100%;
-        margin-bottom: 20px;
-    }
-    .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    /* Footer styling */
-    footer i { color: var(--accent-color); }
-
-    /* Mobil
