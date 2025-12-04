@@ -9,17 +9,15 @@
     gtag('config', 'G-RQMB8SEVQV');
   </script>
 
-  <title>Jonas Walfridsson - Logoped & Föreläsare inom Dyskalkyli</title>
+  <title id="page-title">Jonas Walfridsson - Logoped & Föreläsare inom Dyskalkyli</title>
   <meta charset="UTF-8">
-  <meta name="description" content="Jonas Walfridsson är logoped med spetskompetens inom utredning av räknesvårigheter och dyskalkyli. Anlita honom för föreläsningar, utbildning eller utredning.">
+  <meta name="description" id="page-desc" content="Jonas Walfridsson är logoped med spetskompetens inom utredning av räknesvårigheter och dyskalkyli. Anlita honom för föreläsningar, utbildning eller utredning.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <meta property="og:title" content="Jonas Walfridsson - Expert på Dyskalkyli" />
-  <meta property="og:description" content="Logoped med spetskompetens inom utredning av räknesvårigheter. Boka föreläsningar och utbildningar här." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://jonaswalfridsson.se/" />
   <meta property="og:image" content="jonaswalfridsson.github.io/avatar_hat.jpg" />
-  <meta property="og:locale" content="sv_SE" />
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%232a6f75%22/></svg>">
 
@@ -28,7 +26,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
   <style>
-    /* --- FÄRGTEMA & VARIABLER --- */
     :root {
         --accent-color: #2a6f75; 
         --text-color: #555;
@@ -106,9 +103,7 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      /* Här pekar vi på din fil: Cloud.jpeg */
-      /* Om bilden inte syns, kontrollera att den ligger i samma mapp som index.html */
-      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('Cloud.jpeg');
+      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('jonaswalfridsson.github.io/Cloud.jpeg');
     }
 
     .bgimg-1 { min-height: 100vh; }
@@ -148,6 +143,7 @@
     <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> <span data-i18n="nav_about">OM</span></a>
     <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> <span data-i18n="nav_portfolio">UPPDRAG</span></a>
     <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> <span data-i18n="nav_contact">KONTAKT</span></a>
+    
     <div class="w3-dropdown-hover w3-right w3-hide-small">
       <button class="w3-button" title="Välj språk">
         <i class="fa fa-globe w3-large"></i> <i class="fa fa-caret-down"></i>
@@ -156,6 +152,8 @@
         <a onclick="setLanguage('sv')" class="w3-bar-item w3-button">Svenska</a>
         <a onclick="setLanguage('en')" class="w3-bar-item w3-button">English</a>
         <a onclick="setLanguage('no')" class="w3-bar-item w3-button">Norsk</a>
+        <a onclick="setLanguage('da')" class="w3-bar-item w3-button">Dansk</a>
+        <a onclick="setLanguage('pt')" class="w3-bar-item w3-button">Português</a>
       </div>
     </div>
     <a href="#home" class="w3-bar-item w3-button w3-hide-large w3-hide-medium">Jonas Walfridsson</a>
@@ -170,6 +168,8 @@
         <a onclick="setLanguage('sv'); toggleFunction()" class="w3-bar-item w3-button">🇸🇪 Svenska</a>
         <a onclick="setLanguage('en'); toggleFunction()" class="w3-bar-item w3-button">🇬🇧 English</a>
         <a onclick="setLanguage('no'); toggleFunction()" class="w3-bar-item w3-button">🇳🇴 Norsk</a>
+        <a onclick="setLanguage('da'); toggleFunction()" class="w3-bar-item w3-button">🇩🇰 Dansk</a>
+        <a onclick="setLanguage('pt'); toggleFunction()" class="w3-bar-item w3-button">🇵🇹 Português</a>
     </div>
   </div>
 </div>
@@ -351,91 +351,119 @@
 </footer>
 
 <script>
+/* --- SPRÅKDATA --- */
 const translations = {
     sv: {
-        nav_about: "OM",
-        nav_portfolio: "UPPDRAG",
-        nav_contact: "KONTAKT",
+        page_title: "Jonas Walfridsson - Logoped & Föreläsare inom Dyskalkyli",
+        page_desc: "Jonas Walfridsson är logoped med spetskompetens inom utredning av räknesvårigheter och dyskalkyli.",
+        nav_about: "OM", nav_portfolio: "UPPDRAG", nav_contact: "KONTAKT",
         about_title: "Logoped, utredare och föreläsare inom dyskalkyli",
         about_text_1: "Jag är logoped med spetskompetens inom utredning av räknesvårigheter/dyskalkyli och har arbetat med utredningar på Danderyds sjukhus sedan 2013.",
         about_text_2: "Jag brinner för att sprida kunskap om räkne- och matematiksvårigheter inklusive dyskalkyli och är en flitigt anlitad föreläsare.",
         about_text_3: "Jag har även haft förmånen att delta i medieinslag på temat i såväl SvD, SVT som TV4. Jag håller mig ständigt ajour om forskningsläget kring räkne- och matematiksvårigheter inklusive dyskalkyli.",
         btn_book: "BOKA FÖRELÄSNING / KONTAKT",
-        cat_lecturer: "Föreläsare",
-        cat_investigator: "Utredare",
-        cat_educator: "Utbildare",
+        cat_lecturer: "Föreläsare", cat_investigator: "Utredare", cat_educator: "Utbildare",
         contact_text: "Välkommen att höra av dig vid förfrågningar.",
         btn_email: "SKICKA MAIL",
         date_biennalen: "29 JAN 2026 (Kommande)",
-        role_contact: "Kontaktperson",
-        org_network: "Nationella logopediska dyskalkyli-nätverket",
-        role_author: "Huvudförfattare",
-        org_report: "Fokusrapport om dyskalkyli (Region Stockholm 2015)",
-        role_reviewer: "Faktagranskare",
-        org_1177: "Vårdguiden / 1177:s nationella redaktion",
-        role_expert: "Sakkunnig",
-        org_uhr: "Anlitad av UHR inför utredning om dyskalkyli vid Högskoleprovet",
-        edu_linkoping: "Utredningsmetodik / Dyskalkyli",
-        org_linkoping: "Psykologprogrammet, Linköpings Universitet",
+        role_contact: "Kontaktperson", org_network: "Nationella logopediska dyskalkyli-nätverket",
+        role_author: "Huvudförfattare", org_report: "Fokusrapport om dyskalkyli (Region Stockholm 2015)",
+        role_reviewer: "Faktagranskare", org_1177: "Vårdguiden / 1177:s nationella redaktion",
+        role_expert: "Sakkunnig", org_uhr: "Anlitad av UHR inför utredning om dyskalkyli vid Högskoleprovet",
+        edu_linkoping: "Utredningsmetodik / Dyskalkyli", org_linkoping: "Psykologprogrammet, Linköpings Universitet",
         edu_uppsala: "Delansvarig för kurs: Dyskalkyli - utredning av matematiksvårigheter (7,5 hp)"
     },
     en: {
-        nav_about: "ABOUT",
-        nav_portfolio: "PORTFOLIO",
-        nav_contact: "CONTACT",
+        page_title: "Jonas Walfridsson - Speech Language Pathologist & Lecturer in Dyscalculia",
+        page_desc: "Jonas Walfridsson is a Speech Language Pathologist specializing in dyscalculia investigations and education.",
+        nav_about: "ABOUT", nav_portfolio: "PORTFOLIO", nav_contact: "CONTACT",
         about_title: "Speech Language Pathologist, Investigator & Lecturer in Dyscalculia",
         about_text_1: "I am a Speech Language Pathologist specializing in the investigation of numeracy difficulties/dyscalculia, working at Danderyd Hospital since 2013.",
         about_text_2: "I am passionate about spreading knowledge regarding mathematical difficulties and dyscalculia, and I am a frequently hired lecturer.",
         about_text_3: "I have also had the privilege of participating in media features on the topic in SvD, SVT, and TV4. I constantly keep myself updated on the research status regarding dyscalculia.",
         btn_book: "BOOK LECTURE / CONTACT",
-        cat_lecturer: "Lecturer",
-        cat_investigator: "Investigator",
-        cat_educator: "Educator",
+        cat_lecturer: "Lecturer", cat_investigator: "Investigator", cat_educator: "Educator",
         contact_text: "Welcome to contact me for inquiries.",
         btn_email: "SEND EMAIL",
         date_biennalen: "29 JAN 2026 (Upcoming)",
-        role_contact: "Contact Person",
-        org_network: "National SLP Dyscalculia Network",
-        role_author: "Lead Author",
-        org_report: "Focus Report on Dyscalculia (Region Stockholm 2015)",
-        role_reviewer: "Fact Reviewer",
-        org_1177: "Vårdguiden / 1177 (National Healthcare Guide)",
-        role_expert: "Expert Advisor",
-        org_uhr: "Engaged by UHR regarding dyscalculia investigation for the Swedish Scholastic Aptitude Test",
-        edu_linkoping: "Investigation Methodology / Dyscalculia",
-        org_linkoping: "Psychology Program, Linköping University",
+        role_contact: "Contact Person", org_network: "National SLP Dyscalculia Network",
+        role_author: "Lead Author", org_report: "Focus Report on Dyscalculia (Region Stockholm 2015)",
+        role_reviewer: "Fact Reviewer", org_1177: "Vårdguiden / 1177 (National Healthcare Guide)",
+        role_expert: "Expert Advisor", org_uhr: "Engaged by UHR regarding dyscalculia investigation for the Swedish Scholastic Aptitude Test",
+        edu_linkoping: "Investigation Methodology / Dyscalculia", org_linkoping: "Psychology Program, Linköping University",
         edu_uppsala: "Co-responsible for course: Dyscalculia - investigation of mathematical difficulties (7.5 credits)"
     },
     no: {
-        nav_about: "OM",
-        nav_portfolio: "OPPDRAG",
-        nav_contact: "KONTAKT",
+        page_title: "Jonas Walfridsson - Logoped & Foreleser i Dyskalkuli",
+        page_desc: "Jonas Walfridsson er logoped med spisskompetanse innen utredning av dyskalkuli.",
+        nav_about: "OM", nav_portfolio: "OPPDRAG", nav_contact: "KONTAKT",
         about_title: "Logoped, utreder og foreleser innen dyskalkuli",
         about_text_1: "Jeg er logoped med spisskompetanse innen utredning av regnevansker/dyskalkuli og har jobbet med utredninger på Danderyds sykehus siden 2013.",
         about_text_2: "Jeg brenner for å spre kunnskap om regne- og matematikkvansker inkludert dyskalkuli og er en flittig brukt foreleser.",
-        about_text_3: "Jeg har også hatt gleden av å delta i medieinnslag om temaet i både SvD, SVT som TV4. Jeg holder meg stadig oppdatert på forskningen rundt dyskalkuli.",
+        about_text_3: "Jeg har også hatt gleden av å delta i medieinnslag om temaet i både SvD, SVT og TV4. Jeg holder meg stadig oppdatert på forskningen rundt dyskalkuli.",
         btn_book: "BOOK FORELESNING / KONTAKT",
-        cat_lecturer: "Foreleser",
-        cat_investigator: "Utreder",
-        cat_educator: "Utdanner",
+        cat_lecturer: "Foreleser", cat_investigator: "Utreder", cat_educator: "Utdanner",
         contact_text: "Velkommen til å ta kontakt ved forespørsler.",
         btn_email: "SEND E-POST",
         date_biennalen: "29 JAN 2026 (Kommende)",
-        role_contact: "Kontaktperson",
-        org_network: "Det nasjonale logopediske dyskalkuli-nettverket",
-        role_author: "Hovedforfatter",
-        org_report: "Fokusrapport om dyskalkuli (Region Stockholm 2015)",
-        role_reviewer: "Faktagransker",
-        org_1177: "Vårdguiden / 1177 (Nasjonalt helsenettsted)",
-        role_expert: "Sakkyndig",
-        org_uhr: "Engasjert av UHR angående utredning av dyskalkuli ved høyskoleprøven",
-        edu_linkoping: "Utredningsmetodikk / Dyskalkuli",
-        org_linkoping: "Psykologprogrammet, Linköpings Universitet",
+        role_contact: "Kontaktperson", org_network: "Det nasjonale logopediske dyskalkuli-nettverket",
+        role_author: "Hovedforfatter", org_report: "Fokusrapport om dyskalkuli (Region Stockholm 2015)",
+        role_reviewer: "Faktagransker", org_1177: "Vårdguiden / 1177 (Nasjonalt helsenettsted)",
+        role_expert: "Sakkyndig", org_uhr: "Engasjert av UHR angående utredning av dyskalkuli ved høyskoleprøven",
+        edu_linkoping: "Utredningsmetodikk / Dyskalkuli", org_linkoping: "Psykologprogrammet, Linköpings Universitet",
         edu_uppsala: "Delansvarlig for kurs: Dyskalkuli - utredning av matematikkvansker (7,5 hp)"
+    },
+    da: {
+        page_title: "Jonas Walfridsson - Logopæd & Foredragsholder i Dyskalkuli",
+        page_desc: "Jonas Walfridsson er logopæd med speciale i udredning af regnevanskeligheder og dyskalkuli.",
+        nav_about: "OM", nav_portfolio: "OPGAVER", nav_contact: "KONTAKT",
+        about_title: "Logopæd, udreder og foredragsholder inden for dyskalkuli",
+        about_text_1: "Jeg er logopæd med speciale i udredning af regnevanskeligheder/dyskalkuli og har arbejdet med udredninger på Danderyds sygehus siden 2013.",
+        about_text_2: "Jeg brænder for at sprede viden om regne- og matematikvanskeligheder inklusiv dyskalkuli og er en flittigt anvendt foredragsholder.",
+        about_text_3: "Jeg har også haft fornøjelsen af at deltage i medieindslag om emnet i både SvD, SVT og TV4. Jeg holder mig løbende opdateret om forskningen omkring dyskalkuli.",
+        btn_book: "BOOK FOREDRAG / KONTAKT",
+        cat_lecturer: "Foredragsholder", cat_investigator: "Udreder", cat_educator: "Underviser",
+        contact_text: "Velkommen til at kontakte mig ved forespørgsler.",
+        btn_email: "SEND E-MAIL",
+        date_biennalen: "29 JAN 2026 (Kommende)",
+        role_contact: "Kontaktperson", org_network: "Det nationale logopædiske dyskalkuli-netværk",
+        role_author: "Hovedforfatter", org_report: "Fokusrapport om dyskalkuli (Region Stockholm 2015)",
+        role_reviewer: "Faktatjekker", org_1177: "Vårdguiden / 1177 (National sundhedsguide)",
+        role_expert: "Sagkyndig", org_uhr: "Engageret af UHR vedrørende udredning af dyskalkuli ved højskoleprøven",
+        edu_linkoping: "Udredningsmetodik / Dyskalkuli", org_linkoping: "Psykologprogrammet, Linköpings Universitet",
+        edu_uppsala: "Delansvarlig for kursus: Dyskalkuli - udredning af matematikvanskeligheder (7,5 hp)"
+    },
+    pt: {
+        page_title: "Jonas Walfridsson - Fonoaudiólogo e Palestrante em Discalculia",
+        page_desc: "Jonas Walfridsson é fonoaudiólogo especializado na avaliação de dificuldades de cálculo e discalculia.",
+        nav_about: "SOBRE", nav_portfolio: "PORTFÓLIO", nav_contact: "CONTATO",
+        about_title: "Fonoaudiólogo, Investigador e Palestrante em Discalculia",
+        about_text_1: "Sou fonoaudiólogo com especialização na investigação de dificuldades de cálculo/discalculia e trabalho com avaliações no Hospital Danderyd desde 2013.",
+        about_text_2: "Sou apaixonado por difundir conhecimento sobre dificuldades matemáticas e discalculia, e sou um palestrante frequentemente contratado.",
+        about_text_3: "Também tive o privilégio de participar de reportagens na mídia sobre o tema no SvD, SVT e TV4. Mantenho-me constantemente atualizado sobre o estado da pesquisa em discalculia.",
+        btn_book: "AGENDAR PALESTRA / CONTATO",
+        cat_lecturer: "Palestrante", cat_investigator: "Investigador", cat_educator: "Educador",
+        contact_text: "Bem-vindo a entrar em contato para consultas.",
+        btn_email: "ENVIAR E-MAIL",
+        date_biennalen: "29 JAN 2026 (Próximo)",
+        role_contact: "Pessoa de Contato", org_network: "Rede Nacional de Fonoaudiologia em Discalculia",
+        role_author: "Autor Principal", org_report: "Relatório de Foco sobre Discalculia (Região de Estocolmo 2015)",
+        role_reviewer: "Revisor de Fatos", org_1177: "Vårdguiden / 1177 (Guia Nacional de Saúde)",
+        role_expert: "Consultor Especialista", org_uhr: "Contratado pela UHR para investigação de discalculia no Teste de Aptidão Escolar Sueco",
+        edu_linkoping: "Metodologia de Investigação / Discalculia", org_linkoping: "Programa de Psicologia, Universidade de Linköping",
+        edu_uppsala: "Co-responsável pelo curso: Discalculia - investigação de dificuldades matemáticas (7,5 créditos)"
     }
 };
 
+/* --- FUNKTIONER FÖR SPRÅK OCH SEO --- */
 function setLanguage(lang) {
+    updateContent(lang);
+    // Uppdatera URL utan att ladda om sidan (SEO-vänligt)
+    const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?lang=' + lang;
+    window.history.pushState({path:newUrl}, '', newUrl);
+}
+
+function updateContent(lang) {
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(element => {
         const key = element.getAttribute('data-i18n');
@@ -443,8 +471,25 @@ function setLanguage(lang) {
             element.textContent = translations[lang][key];
         }
     });
+    
+    // Uppdatera sidans titel och beskrivning för SEO
+    if (translations[lang]) {
+        document.title = translations[lang].page_title || document.title;
+        const metaDesc = document.getElementById('page-desc');
+        if (metaDesc) metaDesc.content = translations[lang].page_desc || metaDesc.content;
+    }
+
     document.documentElement.lang = lang;
 }
+
+// Kontrollera URL vid start
+window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const lang = urlParams.get('lang');
+    if (lang && translations[lang]) {
+        updateContent(lang);
+    }
+};
 
 window.onscroll = function() {myFunction()};
 function myFunction() {
