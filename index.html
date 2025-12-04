@@ -70,3 +70,301 @@
     /* CTA-Knapp */
     .btn-cta {
         background-color: var(--accent-color);
+        color: white !important;
+        padding: 14px 28px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none !important;
+        transition: opacity 0.3s;
+        letter-spacing: 1px;
+    }
+    .btn-cta:hover {
+        opacity: 0.9;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Parallax & Bilder */
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .bgimg-1 {
+      background-image: url('jonaswalfridsson.github.io/Cloud.jpeg');
+      min-height: 100vh;
+    }
+    .bgimg-2 {
+      background-image: url('jonaswalfridsson.github.io/parallax2.jpg');
+      min-height: 400px;
+    }
+    .bgimg-3 {
+      background-image: url('jonaswalfridsson.github.io/parallax3.jpg');
+      min-height: 400px;
+    }
+
+    .w3-wide {letter-spacing: 10px;}
+    
+    /* Listor */
+    .custom-list {
+        text-align: left;
+        max-width: 800px;
+        margin: 0 auto;
+        padding-left: 20px;
+        font-size: 16px;
+    }
+    .custom-list li { margin-bottom: 12px; }
+
+    /* Video */
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%; 
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Språk-dropdown styling (Desktop) */
+    .lang-dropdown-content {
+        min-width: 120px;
+    }
+    .w3-dropdown-hover:hover .w3-button {
+        background-color: #ccc;
+        color: #000;
+    }
+
+    /* Footer styling */
+    footer i { color: var(--accent-color); }
+
+    /* --- MOBILANPASSNING (Viktigt!) --- */
+    @media only screen and (max-width: 992px) {
+        
+        /* Ta bort inramningen på mobil */
+        html { background-color: white; }
+        body { 
+            max-width: 100%; 
+            box-shadow: none; 
+            margin: 0;
+        }
+
+        /* Återställ menyn så den sitter fast i toppen normalt */
+        .w3-top {
+            max-width: 100%;
+            left: 0;
+            transform: none;
+            width: 100%;
+        }
+
+        /* Stäng av parallax på mobil för bättre prestanda */
+        .bgimg-1, .bgimg-2, .bgimg-3 {
+            background-attachment: scroll;
+            min-height: 400px;
+        }
+    }
+  </style>
+</head>
+<body>
+
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+
+    <a href="#home" class="w3-bar-item w3-button w3-hide-small">HOME</a>
+    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> OM</a>
+    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> UPPDRAG</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> KONTAKT</a>
+    
+    <div class="w3-dropdown-hover w3-right w3-hide-small">
+      <button class="w3-button" title="Välj språk">
+        <i class="fa fa-globe w3-large"></i> <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="w3-dropdown-content w3-bar-block w3-card-4 lang-dropdown-content" style="right:0">
+        <a href="#" class="w3-bar-item w3-button">Svenska</a>
+        <a href="index_en.html" class="w3-bar-item w3-button">English</a>
+        <a href="index_no.html" class="w3-bar-item w3-button">Norsk</a>
+      </div>
+    </div>
+
+    <a href="#home" class="w3-bar-item w3-button w3-hide-large w3-hide-medium">Jonas Walfridsson</a>
+
+  </div>
+
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-card-4">
+    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">OM</a>
+    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">UPPDRAG</a>
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">KONTAKT</a>
+    
+    <div class="w3-light-grey w3-border-top">
+        <p class="w3-bar-item w3-text-grey w3-small" style="margin:0; padding-top:10px; padding-bottom:0;">VÄLJ SPRÅK / SELECT LANGUAGE</p>
+        <a href="#" class="w3-bar-item w3-button">🇸🇪 Svenska</a>
+        <a href="index_en.html" class="w3-bar-item w3-button">🇬🇧 English</a>
+        <a href="index_no.html" class="w3-bar-item w3-button">🇳🇴 Norsk</a>
+    </div>
+  </div>
+</div>
+
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
+      Jonas Walfridsson
+    </span>    
+  </div>
+</div>
+
+<div class="w3-content w3-container w3-padding-64" id="about">
+  <h3 class="w3-center">Logoped, utredare och föreläsare inom dyskalkyli</h3>
+  
+  <div class="w3-row">
+    <div class="w3-col m6 w3-padding-large">
+      <p>Jag är logoped med spetskompetens inom utredning av räknesvårigheter/dyskalkyli och har arbetat med utredningar på Danderyds sjukhus sedan 2013.</p>
+      <p>Jag brinner för att sprida kunskap om räkne- och matematiksvårigheter inklusive dyskalkyli och är en flitigt anlitad föreläsare.</p>
+      <p>Jag har även haft förmånen att delta i medieinslag på temat i såväl SvD, SVT som TV4. Jag håller mig ständigt ajour om forskningsläget kring räkne- och matematiksvårigheter inklusive dyskalkyli.</p>
+      
+      <br>
+      <a href="#contact" class="btn-cta">BOKA FÖRELÄSNING / KONTAKT</a>
+
+    </div>
+    
+    <div class="w3-col m6 w3-center w3-padding-large">
+      <img src='jonaswalfridsson.github.io/avatar_hat.jpg' class="w3-round w3-image w3-card-4" alt="Foto på Jonas Walfridsson" width="500" height="333">
+    </div>
+  </div>
+</div>
+
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide">UPPDRAG</span>
+  </div>
+</div>
+
+<div class="w3-content w3-container w3-padding-64" id="portfolio">
+  
+  <h3 class="w3-center">Föreläsare</h3>
+  <ul class="custom-list">
+    <li>"Dyskalkyli-Matematikträffen 2025", Magma/Radish AB. 17 oktober 2025</li>
+    <li>"Matematiksvårigheter och tillgänglig matematikundervisning", Kompetento.</li>
+    
+    <li>"Webinarium för lärare om Dyskalkyli", Magma/Radish AB. Mars 2025</li>
+    <li>"Webinarium för lärare om Dyskalkyli", Magma/Radish AB. 27 november 2024</li>
+    <li>"Föreläsning om Dyskalkyli", Praktiska gymnasiet Helsingborg, Hösten 2024</li>
+    <li>"Om dyskalkyli", Skolportalens konferens, 4 oktober 2024</li>
+    <li><a href="https://www.magma.se/matematiktraffen" target="_blank">Expertpanel om dyskalkyli. Matematikträffen 2024</a>, Magma/Radish AB, 3 oktober 2024</li>
+    <li>"Föreläsning om Dyskalkyli", Lärande i Sverige AB, September 2024</li>
+    <li>"Dyskalkyli - aktuellt om kunskapsläge, utredning, diagnostik och åtgärder", Svenska dyslexistiftelsen, 23 augusti 2024</li>
+    <li>Specific Mathematical Difficulties, NORSMA-11, Köpenhamn november 2023</li>
+    <li>"Om dyskalkyli", SiS årliga skolkonferens, Oktober 2023</li>
+    <li>"Om dyskalkyli", Gymnasienätverk för matematiklärare i Uppsala, Oktober 2023</li>
+    <li>"Neurovetenskapliga perspektiv på matematikinlärning", Svenska Dyslexiföreningen, Mars 2023</li>
+  </ul>
+  
+  <hr class="w3-opacity">
+
+  <h3 class="w3-center">Utredare</h3>
+  <ul class="custom-list">
+    <li>Kontaktperson för det nationella logopediska dyskalkyli-nätverket.</li>
+    <li>Huvudförfattare till Fokusrapport om dyskalkyli (Region Stockholm 2015).</li>
+    <li>Faktagranskare för dyskalkyli på Vårdguiden/1177:s nationella redaktion.</li>
+    <li>Sakkunnig anlitad av UHR inför utredning om dyskalkyli vid Högskoleprovet.</li>
+  </ul>
+
+  <hr class="w3-opacity">
+
+  <h3 class="w3-center">Media</h3>
+  <div class="w3-center" style="max-width:800px; margin:auto;">
+    
+    <div class="video-container w3-card-4">
+        <iframe src="https://www.youtube.com/embed/nX6KYOZoLJM?si=pX08K1hiTNb8ro8f" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+    <ul class="custom-list">
+      <li>Allers: "Experten: Betydligt fler än man tror är drabbade" (2024-07-17)</li>
+      <li>SvD: <a href="https://www.svd.se/a/MnRjJK/leona-har-dyskalkyli-det-ar-som-dyslexi-fast-med-siffror" target="_blank">Faktaruta till "Leona har dyskalkyli"</a> (2024-06-14)</li>
+      <li>Funka Mera Norden: Logoped Live "Om dyskalkyli" (2023)</li>
+      <li>Nyheter Väst: <a href="https://www.svt.se/nyheter/lokalt/vast/logopeden-det-ar-skillnaden-pa-dyskalkyli-och-att-ha-svart-for-matte" target="_blank">"Det är skillnaden på dyskalkyli och att ha svårt för matte"</a> (2023)</li>
+      <li>TV4 Nyhetsmorgon: <a href="https://www.tv4.se/klipp/va/20055379/sa-bor-skolan-hjalpa-elever-med-dyskalkyli" target="_blank">"Så bör skolan hjälpa elever med dyskalkyli"</a> (2021)</li>
+      <li>SPSM Podcast Lika värde: <a href="https://www.spsm.se/stodmaterial-matematiksvarigheter/valkommen-till-stodmaterial-matematiksvarigheter/poddar/" target="_blank">Avsnitt 64: Dyskalkyli - så utreds det"</a> (2021)</li>
+      <li>SVT Gomorron: "Inslag om dyskalkyli" (2016)</li>
+    </ul>
+  </div>
+
+  <hr class="w3-opacity">
+
+  <h3 class="w3-center">Utbildare</h3>
+  <ul class="custom-list">
+      <li>Utredningsmetodik/Dyskalkyli på Psykologprogrammet, Linköpings Universitet.</li>
+      <li>Delansvarig för kursen "Dyskalkyli - utredning av matematiksvårigheter (7,5 hp)", Uppsala universitet.</li>
+  </ul>
+</div>
+
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide">KONTAKT</span>
+  </div>
+</div>
+
+<div class="w3-content w3-container w3-padding-64" id="contact">
+  <div class="w3-center w3-padding-32">
+    <div class="w3-large w3-margin-bottom">
+      <i class="fa fa-map-marker fa-fw w3-text-accent w3-xlarge w3-margin-right"></i> STOCKHOLM <br>
+      <i class="fa fa-envelope fa-fw w3-text-accent w3-xlarge w3-margin-right"></i> 
+      <a href="mailto:walfrid100@gmail.com">walfrid100@gmail.com</a><br>
+    </div>
+    <p>Välkommen att höra av dig vid förfrågningar.</p>
+    
+    <a href="mailto:walfrid100@gmail.com" class="btn-cta"><i class="fa fa-paper-plane"></i> SKICKA MAIL</a>
+  </div>
+</div>
+
+<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Till toppen</a>
+
+  <div class="w3-xlarge w3-section">
+    <a href="https://se.linkedin.com/in/jonas-walfridsson-45b07199" target="_blank" title="LinkedIn">
+        <i class="fa fa-linkedin w3-hover-opacity w3-text-accent"></i>
+    </a>
+  </div>
+
+  <p>Built by <a href="https://www.logopedjobb.se" title="Logopedjobb.se" target="_blank" class="w3-hover-text-green">Logopedjobb.se</a></p>
+</footer>
+
+<script>
+// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+    }
+}
+
+// Toggle menu on small screens
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+</body>
+</html>
