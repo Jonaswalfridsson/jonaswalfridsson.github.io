@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="sv" prefix="og: https://ogp.me/ns#">
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RQMB8SEVQV"></script>
   <script>
@@ -9,11 +9,22 @@
     gtag('config', 'G-RQMB8SEVQV');
   </script>
 
-  <title>Jonas Walfridsson - Logoped & Föreläsare</title>
+  <title>Jonas Walfridsson - Logoped & Föreläsare inom Dyskalkyli</title>
   <meta charset="UTF-8">
-  <meta name="description" content="Jonas Walfridsson - Logoped med spetskompetens inom utredning av räknesvårigheter och dyskalkyli. Föreläsare och utbildare.">
+  <meta name="description" content="Jonas Walfridsson är logoped med spetskompetens inom utredning av räknesvårigheter och dyskalkyli. Anlita honom för föreläsningar, utbildning eller utredning.">
+  <meta name="keywords" content="Jonas Walfridsson, Logoped, Dyskalkyli, Räknesvårigheter, Matematiksvårigheter, Föreläsare, Utredning, Stockholm">
+  <meta name="author" content="Jonas Walfridsson">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
+  <meta property="og:title" content="Jonas Walfridsson - Expert på Dyskalkyli" />
+  <meta property="og:description" content="Logoped med spetskompetens inom utredning av räknesvårigheter. Boka föreläsningar och utbildningar här." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jonaswalfridsson.se/" />
+  <meta property="og:image" content="jonaswalfridsson.github.io/avatar_hat.jpg" />
+  <meta property="og:locale" content="sv_SE" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%232a6f75%22/></svg>">
+
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -48,13 +59,27 @@
         z-index: 1000;
     }
 
-    h3 {
+    /* SEO FIX: H1 Inställningar */
+    h1 {
+        font-family: "Lato", sans-serif;
+        font-weight: 400;
+        margin: 0;
+        display: inline-block;
+    }
+
+    h2 {
         font-weight: 300;
         letter-spacing: 2px;
         font-size: 28px;
         color: #000;
         margin-bottom: 30px;
         text-transform: uppercase;
+    }
+    
+    h3 {
+        font-size: 22px;
+        color: var(--accent-color);
+        margin-bottom: 15px;
     }
 
     a { color: var(--accent-color); text-decoration: none; }
@@ -135,10 +160,10 @@
 
     .w3-wide {letter-spacing: 10px;}
     
-    /* --- VIDEO DESIGN (Uppdaterad) --- */
+    /* --- VIDEO DESIGN --- */
     .video-wrapper {
-        max-width: 700px; /* Begränsar bredden på dator */
-        margin: 0 auto 30px auto; /* Centrerar videon */
+        max-width: 700px;
+        margin: 0 auto 30px auto;
     }
 
     .video-container {
@@ -147,9 +172,9 @@
         height: 0; 
         overflow: hidden; 
         width: 100%; 
-        background-color: #000; /* Svart bakgrund om videon laddar långsamt */
-        border-radius: 4px; /* Lite rundade hörn */
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Snygg skugga */
+        background-color: #000;
+        border-radius: 4px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
@@ -165,7 +190,7 @@
         .bgimg-1, .bgimg-2, .bgimg-3 { background-attachment: scroll; min-height: 400px; }
         
         .event-card { margin-left: 10px; margin-right: 10px; }
-        .video-wrapper { max-width: 100%; padding: 0 10px; } /* Full bredd på mobil */
+        .video-wrapper { max-width: 100%; padding: 0 10px; }
     }
   </style>
 </head>
@@ -210,14 +235,14 @@
 
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
+    <h1 class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
       Jonas Walfridsson
-    </span>    
+    </h1>    
   </div>
 </div>
 
 <div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center" data-i18n="about_title">Logoped, utredare och föreläsare inom dyskalkyli</h3>
+  <h2 class="w3-center" data-i18n="about_title">Logoped, utredare och föreläsare inom dyskalkyli</h2>
   
   <div class="w3-row">
     <div class="w3-col m6 w3-padding-large">
@@ -228,7 +253,7 @@
       <a href="#contact" class="btn-cta" data-i18n="btn_book">BOKA FÖRELÄSNING / KONTAKT</a>
     </div>
     <div class="w3-col m6 w3-center w3-padding-large">
-      <img src='jonaswalfridsson.github.io/avatar_hat.jpg' class="w3-round w3-image w3-card-4" alt="Foto på Jonas Walfridsson" width="500" height="333">
+      <img src='jonaswalfridsson.github.io/avatar_hat.jpg' class="w3-round w3-image w3-card-4" alt="Jonas Walfridsson Logoped Dyskalkyli" width="500" height="333">
     </div>
   </div>
 </div>
@@ -241,7 +266,7 @@
 
 <div class="w3-content w3-container w3-padding-64" id="portfolio">
   
-  <h3 class="w3-center" data-i18n="cat_lecturer">Föreläsare</h3>
+  <h2 class="w3-center" data-i18n="cat_lecturer" style="font-size:28px; margin-bottom:30px;">Föreläsare</h2>
   <div class="event-container">
       
       <div class="event-card">
@@ -295,7 +320,7 @@
   
   <br><hr class="w3-opacity"><br>
 
-  <h3 class="w3-center" data-i18n="cat_investigator">Utredare</h3>
+  <h2 class="w3-center" data-i18n="cat_investigator" style="font-size:28px; margin-bottom:30px;">Utredare</h2>
   <div class="event-container">
       <div class="event-card">
           <span class="event-title">Kontaktperson</span>
@@ -317,7 +342,7 @@
 
   <br><hr class="w3-opacity"><br>
 
-  <h3 class="w3-center">Media</h3>
+  <h2 class="w3-center" style="font-size:28px; margin-bottom:30px;">Media</h2>
   <div class="w3-center" style="max-width:800px; margin:auto;">
     
     <div class="video-wrapper">
@@ -340,7 +365,7 @@
 
   <br><hr class="w3-opacity"><br>
 
-  <h3 class="w3-center" data-i18n="cat_educator">Utbildare</h3>
+  <h2 class="w3-center" data-i18n="cat_educator" style="font-size:28px; margin-bottom:30px;">Utbildare</h2>
   <div class="event-container">
       <div class="event-card">
           <span class="event-title">Utredningsmetodik / Dyskalkyli</span>
