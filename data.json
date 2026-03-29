@@ -1,0 +1,105 @@
+{
+  "lecturer": [
+    {
+      "date": "24 APR 2026",
+      "status": "Kommande",
+      "title": "Föreläsning för speciallärarstudenter",
+      "org": "Stockholm Universitet",
+      "link": ""
+    },
+    {
+      "date": "29 JAN 2026",
+      "title": "Matematikbiennalen 2026",
+      "org": "Nationellt Centrum för Matematikutbildning (NCM) och lärarutbildningen vid Göteborgs universitet",
+      "link": "https://matematikbiennalen2026.se/"
+    },
+    {
+      "date": "22 OKT 2025",
+      "title": "Matematiksvårigheter och tillgänglig matematikundervisning",
+      "org": "Kompetento",
+      "link": ""
+    },
+    {
+      "date": "17 OKT 2025",
+      "title": "Dyskalkyli - Matematikträffen 2025",
+      "org": "Magma / Radish AB",
+      "link": ""
+    },
+    {
+      "date": "MARS 2025",
+      "title": "Webinarium för lärare om Dyskalkyli",
+      "org": "Magma / Radish AB",
+      "link": ""
+    },
+    {
+      "date": "27 NOV 2024",
+      "title": "Webinarium för lärare om Dyskalkyli",
+      "org": "Magma / Radish AB",
+      "link": ""
+    },
+    {
+      "date": "HÖSTEN 2024",
+      "title": "Föreläsning om Dyskalkyli",
+      "org": "Praktiska gymnasiet Helsingborg",
+      "link": ""
+    },
+    {
+      "date": "4 OKT 2024",
+      "title": "Om Dyskalkyli",
+      "org": "Skolportalens konferens",
+      "link": ""
+    },
+    {
+      "date": "3 OKT 2024",
+      "title": "Expertpanel om dyskalkyli (Matematikträffen)",
+      "org": "Magma / Radish AB",
+      "link": "https://www.magma.se/matematiktraffen"
+    }
+  ],
+  "investigator": [
+    {
+      "title": "Kontaktperson",
+      "org": "Nationella logopediska dyskalkyli-nätverket",
+      "link": ""
+    },
+    {
+      "title": "Huvudförfattare",
+      "org": "Fokusrapport om dyskalkyli (Region Stockholm 2015)",
+      "link": ""
+    },
+    {
+      "title": "Faktagranskare",
+      "org": "Vårdguiden / 1177:s nationella redaktion",
+      "link": ""
+    },
+    {
+      "title": "Sakkunnig",
+      "org": "Anlitad av UHR inför utredning om dyskalkyli vid Högskoleprovet",
+      "link": ""
+    }
+  ],
+  "media": [
+    {
+      "date": "17 JULI 2024",
+      "title": "Allers: \"Experten: Betydligt fler än man tror är drabbade\"",
+      "link": ""
+    },
+    {
+      "date": "14 JUNI 2024",
+      "title": "SvD: Faktaruta till \"Leona har dyskalkyli\"",
+      "link": "https://www.svd.se/a/MnRjJK/leona-har-dyskalkyli-det-ar-som-dyslexi-fast-med-siffror"
+    }
+  ],
+  "educator": [
+    {
+      "title": "Utredningsmetodik / Dyskalkyli",
+      "org": "Psykologprogrammet, Linköpings Universitet",
+      "link": ""
+    },
+    {
+      "title": "Delansvarig för kurs: Dyskalkyli - utredning av matematiksvårigheter (7,5 hp)",
+      "org": "Uppsala universitet",
+      "link": ""
+    }
+  ]
+}
