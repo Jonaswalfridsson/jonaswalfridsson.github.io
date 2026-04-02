@@ -28,12 +28,19 @@
   <style>
     :root {
         --accent-color: #2a6f75; 
-        --text-color: #555;
-        --light-bg: #fdfdfd;
+        --accent-hover: #1f5459;
+        --text-color: #4a4a4a;
+        --light-bg: #f8fafc;
         --page-max-width: 1200px;
+        --radius: 8px;
     }
 
-    html { background-color: #f0f2f5; overflow-x: hidden; }
+    html { 
+        background-color: #f0f2f5; 
+        overflow-x: hidden; 
+        scroll-behavior: smooth; 
+    }
+
     body {
         font-family: "Lato", sans-serif;
         color: var(--text-color);
@@ -41,7 +48,6 @@
         max-width: var(--page-max-width);
         margin: 0 auto;
         background-color: white;
-        box-shadow: 0 0 20px rgba(0,0,0,0.1);
         position: relative;
     }
     
@@ -53,72 +59,116 @@
         z-index: 1000;
     }
 
-    h1 { font-family: "Lato", sans-serif; font-weight: 400; margin: 0; display: inline-block; }
-    h2 { font-weight: 300; letter-spacing: 2px; font-size: 28px; color: #000; margin-bottom: 30px; text-transform: uppercase; }
+    /* --- MODERN NAVBAR --- */
+    #myNavbar {
+        background-color: rgba(255, 255, 255, 0.92) !important;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
+        transition: all 0.3s ease;
+        padding: 5px 0; /* Ger lite mer luft i menyn */
+    }
+    
+    #myNavbar a {
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: var(--text-color) !important;
+        background-color: transparent !important;
+        transition: color 0.3s ease;
+    }
+    
+    #myNavbar a:hover {
+        color: var(--accent-color) !important;
+        background-color: transparent !important;
+    }
+    
+    #navDemo a {
+        font-weight: 600;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    #navDemo a:hover {
+        color: var(--accent-color) !important;
+        background-color: var(--light-bg) !important;
+    }
+
+    /* Typografi */
+    h1 { font-family: "Lato", sans-serif; font-weight: 700; margin: 0; display: inline-block; }
+    h2 { font-weight: 400; letter-spacing: 1px; font-size: 32px; color: #222; margin-bottom: 40px; }
     h3 { font-size: 22px; color: var(--accent-color); margin-bottom: 15px; }
 
-    a { color: var(--accent-color); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a { color: var(--accent-color); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-hover); text-decoration: underline; }
     .w3-text-accent { color: var(--accent-color) !important; }
 
+    /* Knappar */
     .btn-cta {
         background-color: var(--accent-color);
         color: white !important;
-        padding: 14px 28px;
+        padding: 14px 32px;
         font-size: 16px;
+        font-weight: 600;
         border: none;
-        border-radius: 4px;
+        border-radius: 50px;
         cursor: pointer;
         display: inline-block;
         margin-top: 20px;
         text-decoration: none !important;
-        transition: opacity 0.3s;
-        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(42, 111, 117, 0.3);
     }
-    .btn-cta:hover { opacity: 0.9; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+    .btn-cta:hover { 
+        background-color: var(--accent-hover); 
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(42, 111, 117, 0.4); 
+    }
 
     /* --- EVENT CARDS --- */
     .event-container { max-width: 900px; margin: 0 auto; }
     
     .event-card {
-        background-color: var(--light-bg);
-        border-left: 5px solid var(--accent-color);
-        padding: 15px 20px;
-        margin-bottom: 15px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        background-color: #ffffff;
+        border-left: 6px solid var(--accent-color);
+        border-radius: var(--radius);
+        padding: 20px 25px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
         display: flex; 
         flex-direction: column; 
-        transition: transform 0.2s;
+        transition: all 0.3s ease;
         text-decoration: none !important;
+        border: 1px solid #eaeaea;
+        border-left: 6px solid var(--accent-color);
     }
-    .event-card:hover { transform: translateX(5px); background-color: #fff; }
+    .event-card:hover { 
+        transform: translateY(-4px);
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); 
+    }
     
-    .event-date { font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-color); font-weight: bold; margin-bottom: 4px; }
-    .event-title { font-size: 1.1em; font-weight: 600; color: #333; margin-bottom: 2px; }
-    .event-org { font-size: 0.95em; color: #777; font-style: italic; }
+    .event-date { font-size: 0.85em; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent-color); font-weight: 700; margin-bottom: 6px; }
+    .event-title { font-size: 1.2em; font-weight: 600; color: #222; margin-bottom: 4px; line-height: 1.4; }
+    .event-org { font-size: 1em; color: #666; font-style: normal; }
 
-    /* --- BILDHANTERING (Cloud.jpeg) --- */
+    /* --- Bakgrundsbild --- */
     .bgimg-1, .bgimg-2, .bgimg-3 {
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('jonaswalfridsson.github.io/background.png');
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('jonaswalfridsson.github.io/background.png');
     }
 
-    .bgimg-1 { min-height: 100vh; }
+    .bgimg-1 { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
     .bgimg-2 { min-height: 400px; }
     .bgimg-3 { min-height: 400px; }
-
-    .w3-wide {letter-spacing: 10px;}
     
     /* Video */
-    .video-wrapper { max-width: 700px; margin: 0 auto 30px auto; }
-    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; background-color: #000; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    .video-wrapper { max-width: 800px; margin: 0 auto 40px auto; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; background-color: #000; border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
     .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-    .lang-dropdown-content { min-width: 120px; cursor: pointer; }
-    .w3-dropdown-hover:hover .w3-button { background-color: #ccc; color: #000; }
+    .lang-dropdown-content { min-width: 120px; cursor: pointer; border-radius: var(--radius); overflow: hidden; }
+    .w3-dropdown-hover:hover .w3-button { background-color: var(--light-bg); color: var(--accent-color); }
     footer i { color: var(--accent-color); }
 
     /* Mobilanpassning */
@@ -127,25 +177,27 @@
         body { max-width: 100%; box-shadow: none; margin: 0; }
         .w3-top { max-width: 100%; left: 0; transform: none; width: 100%; }
         .bgimg-1, .bgimg-2, .bgimg-3 { background-attachment: scroll; min-height: 400px; }
-        .event-card { margin-left: 10px; margin-right: 10px; }
-        .video-wrapper { max-width: 100%; padding: 0 10px; }
+        .event-card { margin-left: 15px; margin-right: 15px; }
+        .video-wrapper { max-width: 100%; padding: 0 15px; }
     }
   </style>
 </head>
 <body>
 
 <div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()">
+  <div class="w3-bar" id="myNavbar">
+    
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()">
       <i class="fa fa-bars"></i>
     </a>
+    
     <a href="#home" class="w3-bar-item w3-button w3-hide-small">HOME</a>
     <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> <span data-i18n="nav_about">OM</span></a>
     <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> <span data-i18n="nav_portfolio">UPPDRAG</span></a>
     <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> <span data-i18n="nav_contact">KONTAKT</span></a>
     
     <div class="w3-dropdown-hover w3-right w3-hide-small">
-      <button class="w3-button" title="Välj språk">
+      <button class="w3-button" title="Välj språk" style="background-color: transparent;">
         <i class="fa fa-globe w3-large"></i> <i class="fa fa-caret-down"></i>
       </button>
       <div class="w3-dropdown-content w3-bar-block w3-card-4 lang-dropdown-content" style="right:0">
@@ -156,6 +208,7 @@
         <a onclick="setLanguage('pt')" class="w3-bar-item w3-button">Português</a>
       </div>
     </div>
+    
     <a href="#home" class="w3-bar-item w3-button w3-hide-large w3-hide-medium">Jonas Walfridsson</a>
   </div>
 
@@ -174,11 +227,12 @@
   </div>
 </div>
 
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <h1 class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
+<div class="bgimg-1 w3-display-container" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap; text-align: center;">
+    <h1 class="w3-animate-opacity" style="color: white; font-size: 4rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">
       Jonas Walfridsson
-    </h1>   
+    </h1>
+    <p class="w3-animate-opacity" style="color: #f0f0f0; font-size: 1.2rem; letter-spacing: 2px; margin-top: 0;" data-i18n="cat_investigator">Utredare</p>
   </div>
 </div>
 
@@ -193,14 +247,14 @@
       <a href="#contact" class="btn-cta" data-i18n="btn_book">BOKA FÖRELÄSNING / KONTAKT</a>
     </div>
     <div class="w3-col m6 w3-center w3-padding-large">
-      <img src='jonaswalfridsson.github.io/avatar_hat.jpg' class="w3-round w3-image w3-card-4" alt="Jonas Walfridsson Logoped Dyskalkyli" width="500" height="333">
+      <img src='jonaswalfridsson.github.io/avatar_hat.jpg' class="w3-round w3-image w3-card-4" alt="Jonas Walfridsson Logoped Dyskalkyli" width="500" height="333" style="border-radius: 8px;">
     </div>
   </div>
 </div>
 
-<div class="bgimg-2 w3-display-container w3-opacity-min">
+<div class="bgimg-2 w3-display-container">
   <div class="w3-display-middle">
-    <span class="w3-xxlarge w3-text-white w3-wide" data-i18n="nav_portfolio">UPPDRAG</span>
+    <span class="w3-xxlarge w3-text-white w3-wide" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);" data-i18n="nav_portfolio">UPPDRAG</span>
   </div>
 </div>
 
@@ -231,9 +285,10 @@
   <h2 class="w3-center" data-i18n="cat_educator" style="font-size:28px; margin-bottom:30px;">Utbildare</h2>
   <div id="container-educator" class="event-container"></div>
 </div>
-<div class="bgimg-3 w3-display-container w3-opacity-min">
+
+<div class="bgimg-3 w3-display-container">
   <div class="w3-display-middle">
-     <span class="w3-xxlarge w3-text-white w3-wide" data-i18n="nav_contact">KONTAKT</span>
+     <span class="w3-xxlarge w3-text-white w3-wide" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);" data-i18n="nav_contact">KONTAKT</span>
   </div>
 </div>
 
@@ -249,14 +304,14 @@
   </div>
 </div>
 
-<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Till toppen</a>
+<footer class="w3-center w3-padding-64 w3-opacity w3-hover-opacity-off" style="background-color: #222; color: #fff;">
+  <a href="#home" class="w3-button w3-light-grey" style="border-radius: 4px;"><i class="fa fa-arrow-up w3-margin-right"></i>Till toppen</a>
   <div class="w3-xlarge w3-section">
     <a href="https://se.linkedin.com/in/jonas-walfridsson-45b07199" target="_blank" title="LinkedIn">
         <i class="fa fa-linkedin w3-hover-opacity w3-text-accent"></i>
     </a>
   </div>
-  <p>Built by <a href="https://www.logopedjobb.se" title="Logopedjobb.se" target="_blank" class="w3-hover-text-green">Logopedjobb.se</a></p>
+  <p>Built by <a href="https://www.logopedjobb.se" title="Logopedjobb.se" target="_blank" class="w3-text-accent" style="text-decoration: underline;">Logopedjobb.se</a></p>
 </footer>
 
 <script>
@@ -408,17 +463,18 @@ window.onload = function() {
     const urlParams = new URLSearchParams(window.location.search);
     const lang = urlParams.get('lang') || 'sv';
     updateContent(lang);
-    renderPortfolio(); // Skapar korten från data.json
+    renderPortfolio(); 
 };
 
 // Navbar scroll-effekt
 window.onscroll = function() {myFunction()};
 function myFunction() {
     var navbar = document.getElementById("myNavbar");
+    // Justerade så att den inte skriver över glaseffekten med w3-white
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+        navbar.className = "w3-bar w3-animate-top";
     } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+        navbar.className = navbar.className.replace(" w3-animate-top", "");
     }
 }
 
