@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="sv" prefix="og: https://ogp.me/ns#">
 <head>
@@ -29,12 +28,19 @@
   <style>
     :root {
         --accent-color: #2a6f75; 
-        --text-color: #555;
-        --light-bg: #fdfdfd;
+        --accent-hover: #1f5459;
+        --text-color: #4a4a4a;
+        --light-bg: #f8fafc;
         --page-max-width: 1200px;
+        --radius: 8px;
     }
 
-    html { background-color: #f0f2f5; overflow-x: hidden; }
+    html { 
+        background-color: #f0f2f5; 
+        overflow-x: hidden; 
+        scroll-behavior: smooth; 
+    }
+
     body {
         font-family: "Lato", sans-serif;
         color: var(--text-color);
@@ -42,7 +48,6 @@
         max-width: var(--page-max-width);
         margin: 0 auto;
         background-color: white;
-        box-shadow: 0 0 20px rgba(0,0,0,0.1);
         position: relative;
     }
     
@@ -54,72 +59,116 @@
         z-index: 1000;
     }
 
-    h1 { font-family: "Lato", sans-serif; font-weight: 400; margin: 0; display: inline-block; }
-    h2 { font-weight: 300; letter-spacing: 2px; font-size: 28px; color: #000; margin-bottom: 30px; text-transform: uppercase; }
+    /* --- MODERN NAVBAR --- */
+    #myNavbar {
+        background-color: rgba(255, 255, 255, 0.92) !important;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
+        transition: all 0.3s ease;
+        padding: 5px 0;
+    }
+    
+    #myNavbar a {
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: var(--text-color) !important;
+        background-color: transparent !important;
+        transition: color 0.3s ease;
+    }
+    
+    #myNavbar a:hover {
+        color: var(--accent-color) !important;
+        background-color: transparent !important;
+    }
+    
+    #navDemo a {
+        font-weight: 600;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    #navDemo a:hover {
+        color: var(--accent-color) !important;
+        background-color: var(--light-bg) !important;
+    }
+
+    /* Typografi */
+    h1 { font-family: "Lato", sans-serif; font-weight: 700; margin: 0; display: inline-block; }
+    h2 { font-weight: 400; letter-spacing: 1px; font-size: 32px; color: #222; margin-bottom: 40px; }
     h3 { font-size: 22px; color: var(--accent-color); margin-bottom: 15px; }
 
-    a { color: var(--accent-color); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a { color: var(--accent-color); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-hover); text-decoration: underline; }
     .w3-text-accent { color: var(--accent-color) !important; }
 
+    /* Knappar */
     .btn-cta {
         background-color: var(--accent-color);
         color: white !important;
-        padding: 14px 28px;
+        padding: 14px 32px;
         font-size: 16px;
+        font-weight: 600;
         border: none;
-        border-radius: 4px;
+        border-radius: 50px;
         cursor: pointer;
         display: inline-block;
         margin-top: 20px;
         text-decoration: none !important;
-        transition: opacity 0.3s;
-        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(42, 111, 117, 0.3);
     }
-    .btn-cta:hover { opacity: 0.9; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+    .btn-cta:hover { 
+        background-color: var(--accent-hover); 
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(42, 111, 117, 0.4); 
+    }
 
     /* --- EVENT CARDS --- */
     .event-container { max-width: 900px; margin: 0 auto; }
     
     .event-card {
-        background-color: var(--light-bg);
-        border-left: 5px solid var(--accent-color);
-        padding: 15px 20px;
-        margin-bottom: 15px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        background-color: #ffffff;
+        border-left: 6px solid var(--accent-color);
+        border-radius: var(--radius);
+        padding: 20px 25px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
         display: flex; 
         flex-direction: column; 
-        transition: transform 0.2s;
+        transition: all 0.3s ease;
         text-decoration: none !important;
+        border: 1px solid #eaeaea;
+        border-left: 6px solid var(--accent-color);
     }
-    .event-card:hover { transform: translateX(5px); background-color: #fff; }
+    .event-card:hover { 
+        transform: translateY(-4px);
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); 
+    }
     
-    .event-date { font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-color); font-weight: bold; margin-bottom: 4px; }
-    .event-title { font-size: 1.1em; font-weight: 600; color: #333; margin-bottom: 2px; }
-    .event-org { font-size: 0.95em; color: #777; font-style: italic; }
+    .event-date { font-size: 0.85em; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent-color); font-weight: 700; margin-bottom: 6px; }
+    .event-title { font-size: 1.2em; font-weight: 600; color: #222; margin-bottom: 4px; line-height: 1.4; }
+    .event-org { font-size: 1em; color: #666; font-style: normal; }
 
-    /* --- Bakgrundsbild (Cloud.jpeg) --- */
+    /* --- Bakgrundsbild --- */
     .bgimg-1, .bgimg-2, .bgimg-3 {
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('jonaswalfridsson.github.io/background.png');
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('jonaswalfridsson.github.io/background.png');
     }
 
-    .bgimg-1 { min-height: 100vh; }
+    .bgimg-1 { min-height: 50vh; display: flex; align-items: center; justify-content: center; }
     .bgimg-2 { min-height: 400px; }
     .bgimg-3 { min-height: 400px; }
-
-    .w3-wide {letter-spacing: 10px;}
     
     /* Video */
-    .video-wrapper { max-width: 700px; margin: 0 auto 30px auto; }
-    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; background-color: #000; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    .video-wrapper { max-width: 800px; margin: 0 auto 40px auto; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; background-color: #000; border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
     .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-    .lang-dropdown-content { min-width: 120px; cursor: pointer; }
-    .w3-dropdown-hover:hover .w3-button { background-color: #ccc; color: #000; }
+    .lang-dropdown-content { min-width: 120px; cursor: pointer; border-radius: var(--radius); overflow: hidden; }
+    .w3-dropdown-hover:hover .w3-button { background-color: var(--light-bg); color: var(--accent-color); }
     footer i { color: var(--accent-color); }
 
     /* Mobilanpassning */
@@ -128,25 +177,27 @@
         body { max-width: 100%; box-shadow: none; margin: 0; }
         .w3-top { max-width: 100%; left: 0; transform: none; width: 100%; }
         .bgimg-1, .bgimg-2, .bgimg-3 { background-attachment: scroll; min-height: 400px; }
-        .event-card { margin-left: 10px; margin-right: 10px; }
-        .video-wrapper { max-width: 100%; padding: 0 10px; }
+        .event-card { margin-left: 15px; margin-right: 15px; }
+        .video-wrapper { max-width: 100%; padding: 0 15px; }
     }
   </style>
 </head>
 <body>
 
 <div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()">
+  <div class="w3-bar" id="myNavbar">
+    
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()">
       <i class="fa fa-bars"></i>
     </a>
+    
     <a href="#home" class="w3-bar-item w3-button w3-hide-small">HOME</a>
     <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> <span data-i18n="nav_about">OM</span></a>
     <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> <span data-i18n="nav_portfolio">UPPDRAG</span></a>
     <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> <span data-i18n="nav_contact">KONTAKT</span></a>
     
     <div class="w3-dropdown-hover w3-right w3-hide-small">
-      <button class="w3-button" title="Välj språk">
+      <button class="w3-button" title="Välj språk" style="background-color: transparent;">
         <i class="fa fa-globe w3-large"></i> <i class="fa fa-caret-down"></i>
       </button>
       <div class="w3-dropdown-content w3-bar-block w3-card-4 lang-dropdown-content" style="right:0">
@@ -157,6 +208,7 @@
         <a onclick="setLanguage('pt')" class="w3-bar-item w3-button">Português</a>
       </div>
     </div>
+    
     <a href="#home" class="w3-bar-item w3-button w3-hide-large w3-hide-medium">Jonas Walfridsson</a>
   </div>
 
@@ -175,11 +227,11 @@
   </div>
 </div>
 
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <h1 class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
+<div class="bgimg-1 w3-display-container" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap; text-align: center;">
+    <h1 class="w3-animate-opacity" style="color: white; font-size: clamp(2.5rem, 5vw, 4rem); text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">
       Jonas Walfridsson
-    </h1>   
+    </h1>
   </div>
 </div>
 
@@ -187,21 +239,21 @@
   <h2 class="w3-center" data-i18n="about_title">Logoped, utredare och föreläsare inom dyskalkyli</h2>
   <div class="w3-row">
     <div class="w3-col m6 w3-padding-large">
-      <p data-i18n="about_text_1">Jag är legitimerad logoped med spetskompetens inom utredning av dyskalkyli och räknesvårigheter. Sedan 2013 har jag arbetat med utredningar på Danderyds sjukhus.</p>
-      <p data-i18n="about_text_2">Min passion är att sprida kunskap om ämnet och jag är en flitigt anlitad föreläsare.</p>
-      <p data-i18n="about_text_3">Jag håller mig ständigt ajour med den senaste forskningen och medverkar ofta som expert i media, bland annat i SvD, SVT och TV4.</p>
+      <p data-i18n="about_text_1">Sedan 2013 arbetar jag med kvalificerade utvärderingar på Danderyds sjukhus. Där möter och stöttar jag dagligen individer som kämpar med komplexa utmaningar kring matematik och siffror.</p>
+      <p data-i18n="about_text_2">Min passion är att göra kunskap tillgänglig, och jag är en flitigt anlitad föreläsare som utbildar skolor och verksamheter över hela landet. Genom att ständigt hålla mig ajour med den senaste forskningen ser jag till att mitt arbete vilar på en vetenskaplig grund.</p>
+      <p data-i18n="about_text_3">Jag medverkar även regelbundet som expert i media, bland annat i SVT, TV4 och SvD, för att bidra till en ökad förståelse för räknesvårigheter i samhället. Välkommen att kontakta mig för bokning av föreläsningar eller andra samarbeten kring dyskalkyli och matematiksvårigheter.</p>
       <br>
       <a href="#contact" class="btn-cta" data-i18n="btn_book">BOKA FÖRELÄSNING / KONTAKT</a>
     </div>
     <div class="w3-col m6 w3-center w3-padding-large">
-      <img src='jonaswalfridsson.github.io/avatar_hat.jpg' class="w3-round w3-image w3-card-4" alt="Jonas Walfridsson Logoped Dyskalkyli" width="500" height="333">
+      <img src="jonaswalfridsson.github.io/avatar_hat.jpg" alt="Jonas Walfridsson Logoped Dyskalkyli" style="width: 100%; max-width: 350px; height: auto; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
     </div>
   </div>
 </div>
 
-<div class="bgimg-2 w3-display-container w3-opacity-min">
+<div class="bgimg-2 w3-display-container">
   <div class="w3-display-middle">
-    <span class="w3-xxlarge w3-text-white w3-wide" data-i18n="nav_portfolio">UPPDRAG</span>
+    <span class="w3-xxlarge w3-text-white w3-wide" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);" data-i18n="nav_portfolio">UPPDRAG</span>
   </div>
 </div>
 
@@ -232,9 +284,10 @@
   <h2 class="w3-center" data-i18n="cat_educator" style="font-size:28px; margin-bottom:30px;">Utbildare</h2>
   <div id="container-educator" class="event-container"></div>
 </div>
-<div class="bgimg-3 w3-display-container w3-opacity-min">
+
+<div class="bgimg-3 w3-display-container">
   <div class="w3-display-middle">
-     <span class="w3-xxlarge w3-text-white w3-wide" data-i18n="nav_contact">KONTAKT</span>
+     <span class="w3-xxlarge w3-text-white w3-wide" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);" data-i18n="nav_contact">KONTAKT</span>
   </div>
 </div>
 
@@ -242,35 +295,33 @@
   <div class="w3-center w3-padding-32">
     <div class="w3-large w3-margin-bottom">
       <i class="fa fa-map-marker fa-fw w3-text-accent w3-xlarge w3-margin-right"></i> STOCKHOLM <br>
-      <i class="fa fa-envelope fa-fw w3-text-accent w3-xlarge w3-margin-right"></i> 
-      <a href="mailto:walfrid100@gmail.com">walfrid100@gmail.com</a><br>
     </div>
     <p data-i18n="contact_text">Välkommen att höra av dig vid förfrågningar.</p>
     <a href="mailto:walfrid100@gmail.com" class="btn-cta"><i class="fa fa-paper-plane"></i> <span data-i18n="btn_email">SKICKA MAIL</span></a>
   </div>
 </div>
 
-<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Till toppen</a>
+<footer class="w3-center w3-padding-64 w3-opacity w3-hover-opacity-off" style="background-color: #222; color: #fff;">
+  <a href="#home" class="w3-button w3-light-grey" style="border-radius: 4px;"><i class="fa fa-arrow-up w3-margin-right"></i>Till toppen</a>
   <div class="w3-xlarge w3-section">
     <a href="https://se.linkedin.com/in/jonas-walfridsson-45b07199" target="_blank" title="LinkedIn">
         <i class="fa fa-linkedin w3-hover-opacity w3-text-accent"></i>
     </a>
   </div>
-  <p>Built by <a href="https://www.logopedjobb.se" title="Logopedjobb.se" target="_blank" class="w3-hover-text-green">Logopedjobb.se</a></p>
+  <p>Built by <a href="https://www.logopedjobb.se" title="Logopedjobb.se" target="_blank" class="w3-text-accent" style="text-decoration: underline;">Logopedjobb.se</a></p>
 </footer>
 
 <script>
-/* --- SPRÅKDATA (Nu enbart för fasta texter) --- */
+/* --- SPRÅKDATA --- */
 const translations = {
     sv: {
         page_title: "Jonas Walfridsson - Logoped & Föreläsare inom Dyskalkyli",
         page_desc: "Legitimerad logoped Jonas Walfridsson. Expert på utredning av dyskalkyli och en flitigt anlitad föreläsare inom matematiksvårigheter.",
         nav_about: "OM", nav_portfolio: "UPPDRAG", nav_contact: "KONTAKT",
         about_title: "Logoped, utredare och föreläsare inom dyskalkyli",
-        about_text_1: "Jag är legitimerad logoped med spetskompetens inom utredning av dyskalkyli och räknesvårigheter. Sedan 2013 har jag arbetat med utredningar på Danderyds sjukhus.",
-        about_text_2: "Min passion är att sprida kunskap om ämnet och jag är en flitigt anlitad föreläsare.",
-        about_text_3: "Jag håller mig ständigt ajour med den senaste forskningen och medverkar ofta som expert i media, bland annat i SvD, SVT och TV4.",
+        about_text_1: "Sedan 2013 arbetar jag med kvalificerade utvärderingar på Danderyds sjukhus. Där möter och stöttar jag dagligen individer som kämpar med komplexa utmaningar kring matematik och siffror.",
+        about_text_2: "Min passion är att göra kunskap tillgänglig, och jag är en flitigt anlitad föreläsare som utbildar skolor och verksamheter över hela landet. Genom att ständigt hålla mig ajour med den senaste forskningen ser jag till att mitt arbete vilar på en vetenskaplig grund.",
+        about_text_3: "Jag medverkar även regelbundet som expert i media, bland annat i SVT, TV4 och SvD, för att bidra till en ökad förståelse för räknesvårigheter i samhället. Välkommen att kontakta mig för bokning av föreläsningar eller andra samarbeten kring dyskalkyli och matematiksvårigheter.",
         btn_book: "BOKA FÖRELÄSNING / KONTAKT",
         cat_lecturer: "Föreläsare", cat_investigator: "Utredare", cat_educator: "Utbildare",
         contact_text: "Välkommen att höra av dig vid förfrågningar.",
@@ -281,9 +332,9 @@ const translations = {
         page_desc: "Jonas Walfridsson is a Speech Language Pathologist specializing in dyscalculia investigations and education.",
         nav_about: "ABOUT", nav_portfolio: "PORTFOLIO", nav_contact: "CONTACT",
         about_title: "Speech Language Pathologist, Investigator & Lecturer in Dyscalculia",
-        about_text_1: "I am a Speech Language Pathologist specializing in the investigation of numeracy difficulties/dyscalculia, working at Danderyd Hospital since 2013.",
-        about_text_2: "I am passionate about spreading knowledge regarding mathematical difficulties and dyscalculia, and I am a frequently hired lecturer.",
-        about_text_3: "I have also had the privilege of participating in media features on the topic in SvD, SVT, and TV4. I constantly keep myself updated on the research status regarding dyscalculia.",
+        about_text_1: "Since 2013, I have been conducting qualified assessments at Danderyd Hospital. There, I daily meet and support individuals who are struggling with complex mathematical challenges.",
+        about_text_2: "My passion is making knowledge accessible, and I am a frequently hired lecturer educating schools and organizations across the country. By constantly staying updated on the latest research, I ensure my work rests on a scientific foundation.",
+        about_text_3: "I also regularly appear as an expert in the media, including SVT, TV4, and SvD, to contribute to an increased understanding of numeracy difficulties in society. Welcome to contact me for booking lectures or other collaborations regarding dyscalculia and mathematical difficulties.",
         btn_book: "BOOK LECTURE / CONTACT",
         cat_lecturer: "Lecturer", cat_investigator: "Investigator", cat_educator: "Educator",
         contact_text: "Welcome to contact me for inquiries.",
@@ -294,9 +345,9 @@ const translations = {
         page_desc: "Jonas Walfridsson er logoped med spisskompetanse innen utredning av dyskalkuli.",
         nav_about: "OM", nav_portfolio: "OPPDRAG", nav_contact: "KONTAKT",
         about_title: "Logoped, utreder og foreleser innen dyskalkuli",
-        about_text_1: "Jeg er logoped med spisskompetanse innen utredning av regnevansker/dyskalkuli og har jobbet med utredninger på Danderyds sykehus siden 2013.",
-        about_text_2: "Jeg brenner for å spre kunnskap om regne- og matematikkvansker inkludert dyskalkuli og er en flittig brukt foreleser.",
-        about_text_3: "Jeg har også hatt gleden av å delta i medieinnslag om temaet i både SvD, SVT og TV4. Jeg holder meg stadig oppdatert på forskningen rundt dyskalkuli.",
+        about_text_1: "Siden 2013 har jeg jobbet med kvalifiserte utredninger på Danderyds sykehus. Der møter og støtter jeg daglig individer som kjemper med komplekse utfordringer knyttet til matematikk og tall.",
+        about_text_2: "Min lidenskap er å gjøre kunnskap tilgjengelig, og jeg er en flittig brukt foreleser som utdanner skoler og virksomheter over hele landet. Ved å stadig holde meg oppdatert på den nyeste forskningen, sørger jeg for at arbeidet mitt hviler på et vitenskapelig grunnlag.",
+        about_text_3: "Jeg deltar også regelmessig som ekspert i media, blant annet i SVT, TV4 og SvD, for å bidra til økt forståelse for regnevansker i samfunnet. Velkommen til å kontakte meg for bestilling av forelesninger eller andre samarbeid rundt dyskalkuli og matematikkvansker.",
         btn_book: "BOOK FORELESNING / KONTAKT",
         cat_lecturer: "Foreleser", cat_investigator: "Utreder", cat_educator: "Utdanner",
         contact_text: "Velkommen til å ta kontakt ved forespørsler.",
@@ -307,9 +358,9 @@ const translations = {
         page_desc: "Jonas Walfridsson er logopæd med speciale i udredning af regnevanskeligheder og dyskalkuli.",
         nav_about: "OM", nav_portfolio: "OPGAVER", nav_contact: "KONTAKT",
         about_title: "Logopæd, udreder og foredragsholder inden for dyskalkuli",
-        about_text_1: "Jeg er logopæd med speciale i udredning af regnevanskeligheder/dyskalkuli og har arbejdet med udredninger på Danderyds sygehus siden 2013.",
-        about_text_2: "Jeg brænder for at sprede viden om regne- og matematikvanskeligheder inklusiv dyskalkuli og er en flittigt anvendt foredragsholder.",
-        about_text_3: "Jeg har også haft fornøjelsen af at deltage i medieindslag om emnet i både SvD, SVT og TV4. Jeg holder mig løbende opdateret om forskningen omkring dyskalkuli.",
+        about_text_1: "Siden 2013 har jeg arbejdet med kvalificerede udredninger på Danderyds sygehus. Dér møder og støtter jeg dagligt individer, der kæmper med komplekse udfordringer relateret til matematik og tal.",
+        about_text_2: "Min passion er at gøre viden tilgængelig, og jeg er en flittigt anvendt foredragsholder, der uddanner skoler og virksomheder over hele landet. Ved løbende at holde mig opdateret med den nyeste forskning sikrer jeg, at mit arbejde hviler på et videnskabeligt grundlag.",
+        about_text_3: "Jeg medvirker også regelmæssigt som ekspert i medierne, herunder SVT, TV4 og SvD, for at bidrage til en øget forståelse af regnevanskeligheder i samfundet. Velkommen til at kontakte mig for booking af foredrag eller andre samarbejder omkring dyskalkuli og matematikvanskeligheder.",
         btn_book: "BOOK FOREDRAG / KONTAKT",
         cat_lecturer: "Foredragsholder", cat_investigator: "Udreder", cat_educator: "Underviser",
         contact_text: "Velkommen til at kontakte mig ved forespørgsler.",
@@ -320,9 +371,9 @@ const translations = {
         page_desc: "Jonas Walfridsson é fonoaudiólogo especializado na avaliação de dificuldades de cálculo e discalculia.",
         nav_about: "SOBRE", nav_portfolio: "PORTFÓLIO", nav_contact: "CONTATO",
         about_title: "Fonoaudiólogo, Investigador e Palestrante em Discalculia",
-        about_text_1: "Sou fonoaudiólogo com especialização na investigação de dificuldades de cálculo/discalculia e trabalho com avaliações no Hospital Danderyd desde 2013.",
-        about_text_2: "Sou apaixonado por difundir conhecimento sobre dificuldades matemáticas e discalculia, e sou um palestrante frequentemente contratado.",
-        about_text_3: "Também tive o privilégio de participar de reportagens na mídia sobre o tema no SvD, SVT e TV4. Mantenho-me constantemente atualizado sobre o estado da pesquisa em discalculia.",
+        about_text_1: "Desde 2013, trabalho com avaliações qualificadas no Hospital Danderyd. Lá, encontro e apoio diariamente pessoas que lidam com desafios complexos relacionados à matemática e números.",
+        about_text_2: "Minha paixão é tornar o conhecimento acessível, e sou um palestrante frequentemente contratado para educar escolas e organizações em todo o país. Mantendo-me constantemente atualizado com as pesquisas mais recentes, garanto que meu trabalho se baseie em fundamentos científicos.",
+        about_text_3: "Também participo regularmente como especialista na mídia, incluindo SVT, TV4 e SvD, para contribuir com um maior entendimento sobre dificuldades de cálculo na sociedade. Bem-vindo a entrar em contato comigo para agendar palestras ou outras colaborações sobre discalculia e dificuldades matemáticas.",
         btn_book: "AGENDAR PALESTRA / CONTATO",
         cat_lecturer: "Palestrante", cat_investigator: "Investigador", cat_educator: "Educador",
         contact_text: "Bem-vindo a entrar em contato para consultas.",
@@ -409,7 +460,7 @@ window.onload = function() {
     const urlParams = new URLSearchParams(window.location.search);
     const lang = urlParams.get('lang') || 'sv';
     updateContent(lang);
-    renderPortfolio(); // Skapar korten från data.json
+    renderPortfolio(); 
 };
 
 // Navbar scroll-effekt
@@ -417,9 +468,9 @@ window.onscroll = function() {myFunction()};
 function myFunction() {
     var navbar = document.getElementById("myNavbar");
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+        navbar.className = "w3-bar w3-animate-top";
     } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+        navbar.className = navbar.className.replace(" w3-animate-top", "");
     }
 }
 
