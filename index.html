@@ -362,7 +362,7 @@ document.addEventListener('click', function (e) {
 /**
  * PORTFOLIO RENDERING
  * Fetches data from data.json and injects cards into the DOM.
- * Restricts 'lecturer' category to the last 5 entries.
+ * Restricts 'lecturer' category to the first 5 entries.
  */
 async function renderPortfolio() {
     try {
@@ -377,12 +377,12 @@ async function renderPortfolio() {
                 // 1. Skapa en variabel för inläggen i den aktuella kategorin
                 let items = data[key];
                 
-                // 2. Om kategorin är 'lecturer', behåll endast de sista 5 inläggen
+                // 2. Om kategorin är 'lecturer', behåll endast de FÖRSTA 5 inläggen
                 if (key === 'lecturer') {
-                    items = items.slice(-5);
+                    items = items.slice(0, 5);
                 }
                 
-                // 3. Använd vår nya 'items'-variabel istället för data[key] för att bygga HTML
+                // 3. Använd vår nya 'items'-variabel för att bygga HTML
                 container.innerHTML = items.map(item => `
                     <${item.link ? 'a href="'+item.link+'" target="_blank"' : 'div'} class="event-card">
                         ${item.date ? `<span class="event-date">${item.date}</span>` : ''}
