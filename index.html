@@ -55,23 +55,18 @@
     body { font-family: "Lato", sans-serif; color: var(--text-color); line-height: 1.8; max-width: var(--page-max-width); margin: 0 auto; background-color: white; position: relative; }
     
     /* STACKING CONTEXT & NAVIGATION FIXES
-       The following rules ensure the navigation bar stays on top of hero images 
-       and prevents the dropdown menu from being hidden or clipped. */
+       High z-index to ensure dropdowns appear over hero images. */
     .w3-top { 
         max-width: var(--page-max-width); 
         left: 50%; 
         transform: translateX(-50%); 
         width: 100%; 
-        z-index: 99999 !important; /* Forces nav to the top of the stacking order */
+        z-index: 99999 !important; 
         position: fixed;
     }
     
-    /* Ensure the dropdown container can render children outside its bounds */
-    #myNavbar, .w3-bar, .w3-dropdown-hover { 
-        overflow: visible !important; 
-    }
+    #myNavbar, .w3-bar, .w3-dropdown-hover { overflow: visible !important; }
 
-    /* Force the dropdown content to sit at the absolute top of the visual stack */
     .w3-dropdown-content { 
         z-index: 100000 !important; 
         background-color: #ffffff !important;
@@ -79,7 +74,6 @@
         box-shadow: 0 8px 16px rgba(0,0,0,0.15) !important;
     }
 
-    /* Adjusting background images to stay behind the UI layer */
     .bgimg-1, .bgimg-2, .bgimg-3 { 
         position: relative;
         z-index: 1; 
@@ -93,15 +87,26 @@
     .bgimg-1 { min-height: 60vh; display: flex; align-items: center; justify-content: center; }
     #myNavbar { background-color: rgba(255, 255, 255, 0.96) !important; backdrop-filter: blur(8px); }
     
-    /* UI Elements */
-    .btn-cta { background-color: var(--accent-color); color: white !important; padding: 14px 32px; font-weight: 600; border-radius: 50px; cursor: pointer; display: inline-block; text-decoration: none !important; transition: all 0.3s ease; }
+    .btn-cta { 
+        background-color: var(--accent-color); 
+        color: white !important; 
+        padding: 14px 32px; 
+        font-weight: 600; 
+        border-radius: 50px; 
+        cursor: pointer; 
+        display: inline-block; 
+        text-decoration: none !important; 
+        transition: all 0.3s ease;
+        text-align: center;
+    }
     .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(42, 111, 117, 0.3); }
 
     .event-card { background: #fff; border-left: 6px solid var(--accent-color); padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; text-decoration: none !important; border: 1px solid #eaeaea; transition: 0.3s; }
-    .event-card:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+    .event-card:hover { transform: translateY(-3px); }
 
     @media only screen and (max-width: 992px) { 
         .bgimg-1, .bgimg-2, .bgimg-3 { background-attachment: scroll; } 
+        .btn-cta { width: 90%; max-width: 300px; }
     }
   </style>
 </head>
@@ -134,7 +139,6 @@
     <a href="#portfolio" class="w3-bar-item w3-button" data-i18n="nav_portfolio" onclick="toggleFunction()">ASSIGNMENTS</a>
     <a href="#contact" class="w3-bar-item w3-button" data-i18n="nav_contact" onclick="toggleFunction()">CONTACT</a>
     <div class="w3-light-grey w3-padding-small">
-        <p class="w3-small w3-margin-left">LANGUAGE</p>
         <a href="?lang=sv" class="w3-bar-item w3-button lang-link" data-lang="sv">🇸🇪 Svenska</a>
         <a href="?lang=en" class="w3-bar-item w3-button lang-link" data-lang="en">🇬🇧 English</a>
         <a href="?lang=no" class="w3-bar-item w3-button lang-link" data-lang="no">🇳🇴 Norsk</a>
@@ -155,7 +159,7 @@
       <p data-i18n="about_text_1">Expert in dyscalculia investigations since 2013.</p>
       <p data-i18n="about_text_2">Committed to making knowledge accessible through education and media.</p>
       <br>
-      <a href="#contact" class="btn-cta" data-i18n="btn_book">BOOK LECTURE / CONTACT</a>
+      <a href="#contact" class="btn-cta" data-i18n="btn_book">FÖRELÄSNING & SAMARBETE</a>
     </div>
     <div class="w3-col m6 w3-center w3-padding-large">
       <img src="avatar_hat.jpg" alt="Jonas Walfridsson" style="width:100%; max-width:350px; border-radius:16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
@@ -191,8 +195,9 @@
 </footer>
 
 <script>
-/** * TRANSLATION DATA
- * Add your specific text content here for each language 
+/**
+ * TRANSLATION DATA
+ * Optimized UX Copy for "Föreläsning & Samarbete"
  */
 const translations = {
     sv: {
@@ -202,7 +207,7 @@ const translations = {
         about_title: "Logoped, utredare och föreläsare inom dyskalkyli",
         about_text_1: "Sedan 2013 arbetar jag med kvalificerade utvärderingar på Danderyds sjukhus.",
         about_text_2: "Min passion är att göra kunskap tillgänglig genom utbildningar.",
-        btn_book: "BOKA FÖRELÄSNING / KONTAKT",
+        btn_book: "FÖRELÄSNING & SAMARBETE",
         cat_lecturer: "Föreläsare", cat_investigator: "Utredare",
         contact_text: "Välkommen att höra av dig vid förfrågningar.",
         btn_email: "SKICKA MAIL"
@@ -214,7 +219,7 @@ const translations = {
         about_title: "Speech Language Pathologist & Lecturer",
         about_text_1: "Since 2013, I have been conducting assessments at Danderyd Hospital.",
         about_text_2: "My passion is making knowledge accessible globally.",
-        btn_book: "BOOK LECTURE / CONTACT",
+        btn_book: "LECTURES & COLLABORATION",
         cat_lecturer: "Lecturer", cat_investigator: "Investigator",
         contact_text: "Welcome to contact me for inquiries.",
         btn_email: "SEND EMAIL"
@@ -223,7 +228,7 @@ const translations = {
         page_title: "Jonas Walfridsson - Logoped & Foreleser",
         nav_about: "OM", nav_portfolio: "OPPDRAG", nav_contact: "KONTAKT",
         about_title: "Logoped, utreder og foreleser",
-        btn_book: "BOOK FORELESNING / KONTAKT",
+        btn_book: "FORELESNING & SAMARBEID",
         cat_lecturer: "Foreleser", cat_investigator: "Utreder",
         contact_text: "Velkommen til å ta kontakt.",
         btn_email: "SEND E-POST"
@@ -232,7 +237,7 @@ const translations = {
         page_title: "Jonas Walfridsson - Logopæd & Foredragsholder",
         nav_about: "OM", nav_portfolio: "OPGAVER", nav_contact: "KONTAKT",
         about_title: "Logopæd, udreder og foredragsholder",
-        btn_book: "BOOK FOREDRAG / KONTAKT",
+        btn_book: "FOREDRAG & SAMARBEJDE",
         cat_lecturer: "Foredragsholder", cat_investigator: "Udreder",
         contact_text: "Velkommen til at kontakte mig.",
         btn_email: "SEND E-MAIL"
@@ -241,7 +246,7 @@ const translations = {
         page_title: "Jonas Walfridsson - Fonoaudiólogo e Palestrante",
         nav_about: "SOBRE", nav_portfolio: "PORTFÓLIO", nav_contact: "CONTATO",
         about_title: "Fonoaudiólogo e Palestrante em Discalculia",
-        btn_book: "AGENDAR PALESTRA / CONTATO",
+        btn_book: "PALESTRAS & COLABORAÇÃO",
         cat_lecturer: "Palestrante", cat_investigator: "Investigador",
         contact_text: "Bem-vindo a entrar em contato.",
         btn_email: "ENVIAR E-MAIL"
@@ -250,32 +255,22 @@ const translations = {
 
 /**
  * CORE LANGUAGE LOGIC
- * Updates DOM elements based on selected language and updates URL state
  */
 function setLanguage(lang) {
     const data = translations[lang] || translations['sv'];
-    
-    // Update all elements with data-i18n attribute
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (data[key]) el.textContent = data[key];
     });
-
-    // Update Meta Title and Description for SEO
     document.title = data.page_title || "Jonas Walfridsson";
     const metaDesc = document.getElementById('page-desc');
     if (metaDesc && data.page_desc) metaDesc.content = data.page_desc;
-    
-    // Update HTML lang attribute for screen readers
     document.documentElement.lang = lang;
-    
-    // Sync URL without refreshing the page
     window.history.pushState({}, '', '?lang=' + lang);
 }
 
 /**
- * GLOBAL EVENT LISTENERS
- * Handles language switching via event delegation
+ * GLOBAL EVENT DELEGATION
  */
 document.addEventListener('click', function (e) {
     const langBtn = e.target.closest('.lang-link');
@@ -283,15 +278,13 @@ document.addEventListener('click', function (e) {
         e.preventDefault();
         const lang = langBtn.getAttribute('data-lang');
         setLanguage(lang);
-        // Auto-close mobile menu if open
         const demo = document.getElementById("navDemo");
         if (demo.className.indexOf("w3-show") != -1) toggleFunction();
     }
 });
 
 /**
- * PORTFOLIO RENDERING
- * Fetches data from data.json and injects cards into the DOM
+ * DYNAMIC CONTENT RENDERING
  */
 async function renderPortfolio() {
     try {
@@ -311,33 +304,25 @@ async function renderPortfolio() {
                 `).join('');
             }
         }
-    } catch (e) { 
-        console.error("Portfolio Data Load Error:", e); 
-    }
+    } catch (e) { console.error("Data error", e); }
 }
 
-/**
- * UI CONTROLS
- */
 function toggleFunction() {
     var x = document.getElementById("navDemo");
     x.className = x.className.indexOf("w3-show") == -1 ? x.className + " w3-show" : x.className.replace(" w3-show", "");
 }
 
 /**
- * INITIALIZATION
- * Runs on page load to detect language and render dynamic content
+ * INITIALIZATION & BROWSER DETECTION
  */
 window.onload = () => {
     const urlParams = new URLSearchParams(window.location.search);
     let lang = urlParams.get('lang');
 
-    // Browser Language Detection Logic
     if (!lang) {
         const browserLang = (navigator.language || navigator.userLanguage).substring(0, 2);
         const supported = ['sv', 'en', 'no', 'da', 'pt'];
         lang = supported.includes(browserLang) ? browserLang : 'sv';
-        // Apply detected language to URL immediately for SEO consistency
         window.history.replaceState({}, '', '?lang=' + lang);
     }
 
