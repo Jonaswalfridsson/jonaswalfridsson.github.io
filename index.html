@@ -245,8 +245,17 @@
   <h2 class="w3-center" data-i18n="cat_lecturer">Lecturer</h2>
   <div id="container-lecturer"></div>
   <br><hr><br>
+  
   <h2 class="w3-center" data-i18n="cat_investigator">Investigator</h2>
   <div id="container-investigator"></div>
+  <br><hr><br>
+  
+  <h2 class="w3-center" data-i18n="cat_media">Media</h2>
+  <div id="container-media"></div>
+  <br><hr><br>
+  
+  <h2 class="w3-center" data-i18n="cat_educator">Educator</h2>
+  <div id="container-educator"></div>
 </div>
 
 <div class="w3-content w3-container w3-padding-64" id="contact">
@@ -278,7 +287,10 @@ const translations = {
         about_text_2: "Min passion är att göra kunskap tillgänglig, och jag är en flitigt anlitad föreläsare som utbildar skolor och verksamheter över hela landet. Genom att ständigt hålla mig ajour med den senaste forskningen ser jag till att mitt arbete vilar på en vetenskaplig grund.",
         about_text_3: "Jag medverkar även regelbundet som expert i media, bland annat i SVT, TV4 och SvD, för att bidra till en ökad förståelse för räknesvårigheter i samhället. Välkommen att kontakta mig för bokning av föreläsningar eller andra samarbeten kring dyskalkyli och matematiksvårigheter.",
         btn_book: "FÖRELÄSNING & SAMARBETE",
-        cat_lecturer: "Föreläsare", cat_investigator: "Utredare",
+        cat_lecturer: "Föreläsare", 
+        cat_investigator: "Utredare",
+        cat_media: "I Media",
+        cat_educator: "Utbildare",
         contact_text: "Välkommen att höra av dig vid förfrågningar.",
         btn_email: "SKICKA MAIL"
     },
@@ -291,7 +303,10 @@ const translations = {
         about_text_2: "My passion is making knowledge accessible, and I am a frequently hired lecturer educating schools and organizations nationwide. By constantly staying updated with the latest research, I ensure my work rests on a scientific foundation.",
         about_text_3: "I also regularly participate as an expert in the media, including SVT, TV4, and SvD, to contribute to an increased understanding of numeracy difficulties in society. You are welcome to contact me for booking lectures or other collaborations regarding dyscalculia and mathematical difficulties.",
         btn_book: "LECTURES & COLLABORATION",
-        cat_lecturer: "Lecturer", cat_investigator: "Investigator",
+        cat_lecturer: "Lecturer", 
+        cat_investigator: "Investigator",
+        cat_media: "Media",
+        cat_educator: "Educator",
         contact_text: "Welcome to contact me for inquiries.",
         btn_email: "SEND EMAIL"
     },
@@ -300,21 +315,30 @@ const translations = {
         nav_about: "OM", nav_portfolio: "OPPDRAG", nav_contact: "KONTAKT",
         about_title: "Logoped, utreder og foreleser",
         btn_book: "FORELESNING & SAMARBEID",
-        cat_lecturer: "Foreleser", cat_investigator: "Utreder"
+        cat_lecturer: "Foreleser", 
+        cat_investigator: "Utreder",
+        cat_media: "I Media",
+        cat_educator: "Utdanner"
     },
     da: {
         page_title: "Jonas Walfridsson - Logopæd & Foredragsholder",
         nav_about: "OM", nav_portfolio: "OPGAVER", nav_contact: "KONTAKT",
         about_title: "Logopæd, udreder og foredragsholder",
         btn_book: "FOREDRAG & SAMARBEJDE",
-        cat_lecturer: "Foredragsholder", cat_investigator: "Udreder"
+        cat_lecturer: "Foredragsholder", 
+        cat_investigator: "Udreder",
+        cat_media: "I Medierne",
+        cat_educator: "Underviser"
     },
     pt: {
         page_title: "Jonas Walfridsson - Fonoaudiólogo e Palestrante",
         nav_about: "SOBRE", nav_portfolio: "PORTFÓLIO", nav_contact: "CONTATO",
         about_title: "Fonoaudiólogo e Palestrante em Discalculia",
         btn_book: "PALESTRAS & COLABORAÇÃO",
-        cat_lecturer: "Palestrante", cat_investigator: "Investigador"
+        cat_lecturer: "Palestrante", 
+        cat_investigator: "Investigador",
+        cat_media: "Na Mídia",
+        cat_educator: "Educador"
     }
 };
 
@@ -368,7 +392,14 @@ async function renderPortfolio() {
     try {
         const response = await fetch('data.json');
         const data = await response.json();
-        const cats = {'lecturer': 'container-lecturer', 'investigator': 'container-investigator'};
+        
+        // Mappning för alla fyra kategorier
+        const cats = {
+            'lecturer': 'container-lecturer', 
+            'investigator': 'container-investigator',
+            'media': 'container-media',
+            'educator': 'container-educator'
+        };
         
         for (const [key, id] of Object.entries(cats)) {
             const container = document.getElementById(id);
@@ -382,7 +413,7 @@ async function renderPortfolio() {
                     items = items.slice(0, 5);
                 }
                 
-                // 3. Använd vår nya 'items'-variabel för att bygga HTML
+                // 3. Använd vår 'items'-variabel för att bygga HTML
                 container.innerHTML = items.map(item => `
                     <${item.link ? 'a href="'+item.link+'" target="_blank"' : 'div'} class="event-card">
                         ${item.date ? `<span class="event-date">${item.date}</span>` : ''}
