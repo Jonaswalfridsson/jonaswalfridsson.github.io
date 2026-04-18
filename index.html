@@ -386,7 +386,7 @@ document.addEventListener('click', function (e) {
 /**
  * PORTFOLIO RENDERING
  * Fetches data from data.json and injects cards into the DOM.
- * Restricts 'lecturer' category to the first 5 entries.
+ * Restricts 'lecturer' category to the first 5 entries and handles status flags.
  */
 async function renderPortfolio() {
     try {
@@ -413,10 +413,11 @@ async function renderPortfolio() {
                     items = items.slice(0, 5);
                 }
                 
-                // 3. Använd vår 'items'-variabel för att bygga HTML
+                // 3. Använd vår 'items'-variabel för att bygga HTML (Nu med status-etikett!)
                 container.innerHTML = items.map(item => `
                     <${item.link ? 'a href="'+item.link+'" target="_blank"' : 'div'} class="event-card">
                         ${item.date ? `<span class="event-date">${item.date}</span>` : ''}
+                        ${item.status ? `<span style="background-color: var(--accent-color); color: white; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 6px; width: fit-content;">${item.status}</span>` : ''}
                         <span class="event-title">${item.title}</span>
                         ${item.org ? `<span class="event-org">${item.org}</span>` : ''}
                     </${item.link ? 'a' : 'div'}>
