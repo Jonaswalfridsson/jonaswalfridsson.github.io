@@ -37,11 +37,6 @@
   }
   </script>
 
-  <meta property="og:title" content="Jonas Walfridsson - Expert på Dyskalkyli" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://jonaswalfridsson.se/" />
-  <meta property="og:image" content="https://jonaswalfridsson.github.io/avatar_hat.jpg" />
-
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%232a6f75%22/></svg>">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -60,27 +55,49 @@
     html { background-color: #f0f2f5; overflow-x: hidden; scroll-behavior: smooth; }
     body { font-family: "Lato", sans-serif; color: var(--text-color); line-height: 1.8; max-width: var(--page-max-width); margin: 0 auto; background-color: white; position: relative; }
     
-    .w3-top { max-width: var(--page-max-width); left: 50%; transform: translateX(-50%); width: 100%; z-index: 1000; }
-    #myNavbar { background-color: rgba(255, 255, 255, 0.92) !important; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important; padding: 5px 0; }
-    #myNavbar a { font-weight: 700; color: var(--text-color) !important; background-color: transparent !important; }
+    /* FIX: Z-INDEX FÖR NAVIGERING OCH DROPDOWN */
+    .w3-top { 
+        max-width: var(--page-max-width); 
+        left: 50%; 
+        transform: translateX(-50%); 
+        width: 100%; 
+        z-index: 9999 !important; 
+    }
+    
+    .w3-dropdown-content { 
+        z-index: 10000 !important; 
+    }
+
+    #myNavbar { 
+        background-color: rgba(255, 255, 255, 0.95) !important; 
+        backdrop-filter: blur(8px); 
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important; 
+    }
+    
+    #myNavbar a { font-weight: 700; color: var(--text-color) !important; }
     #myNavbar a:hover { color: var(--accent-color) !important; }
 
-    .btn-cta { background-color: var(--accent-color); color: white !important; padding: 14px 32px; font-size: 16px; font-weight: 600; border-radius: 50px; cursor: pointer; display: inline-block; text-decoration: none !important; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(42, 111, 117, 0.3); }
+    .btn-cta { background-color: var(--accent-color); color: white !important; padding: 14px 32px; font-size: 16px; font-weight: 600; border-radius: 50px; cursor: pointer; display: inline-block; text-decoration: none !important; transition: all 0.3s ease; }
     .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(42, 111, 117, 0.4); }
 
     .event-card { background: #fff; border-left: 6px solid var(--accent-color); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; text-decoration: none !important; border: 1px solid #eaeaea; transition: transform 0.3s; }
     .event-card:hover { transform: translateY(-4px); }
-    .event-date { font-size: 0.85em; color: var(--accent-color); font-weight: 700; }
-    .event-title { font-size: 1.2em; font-weight: 600; color: #222; }
+    
+    .bgimg-1, .bgimg-2, .bgimg-3 { 
+        background-attachment: fixed; 
+        background-position: center; 
+        background-repeat: no-repeat; 
+        background-size: cover; 
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('background.png');
+        position: relative;
+        z-index: 1; /* Håll bilderna på lägre lager än menyn */
+    }
+    .bgimg-1 { min-height: 60vh; display: flex; align-items: center; justify-content: center; }
+    .bgimg-2, .bgimg-3 { min-height: 350px; display: flex; align-items: center; justify-content: center; }
 
-    .bgimg-1, .bgimg-2, .bgimg-3 { background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('background.png'); }
-    .bgimg-1 { min-height: 50vh; display: flex; align-items: center; justify-content: center; }
-    .bgimg-2, .bgimg-3 { min-height: 300px; display: flex; align-items: center; justify-content: center; }
-
-    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius); background: #000; }
-    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
-    @media only screen and (max-width: 992px) { .bgimg-1, .bgimg-2, .bgimg-3 { background-attachment: scroll; } }
+    @media only screen and (max-width: 992px) { 
+        .bgimg-1, .bgimg-2, .bgimg-3 { background-attachment: scroll; } 
+    }
   </style>
 </head>
 <body>
@@ -108,10 +125,11 @@
   </div>
 
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-card-4">
-    <a href="#about" class="w3-bar-item w3-button" data-i18n="nav_about">OM</a>
-    <a href="#portfolio" class="w3-bar-item w3-button" data-i18n="nav_portfolio">UPPDRAG</a>
-    <a href="#contact" class="w3-bar-item w3-button" data-i18n="nav_contact">KONTAKT</a>
+    <a href="#about" class="w3-bar-item w3-button" data-i18n="nav_about" onclick="toggleFunction()">OM</a>
+    <a href="#portfolio" class="w3-bar-item w3-button" data-i18n="nav_portfolio" onclick="toggleFunction()">UPPDRAG</a>
+    <a href="#contact" class="w3-bar-item w3-button" data-i18n="nav_contact" onclick="toggleFunction()">KONTAKT</a>
     <div class="w3-light-grey w3-padding-small">
+        <p class="w3-small w3-margin-left">LANGUAGE</p>
         <a href="?lang=sv" class="w3-bar-item w3-button lang-link" data-lang="sv">🇸🇪 Svenska</a>
         <a href="?lang=en" class="w3-bar-item w3-button lang-link" data-lang="en">🇬🇧 English</a>
         <a href="?lang=no" class="w3-bar-item w3-button lang-link" data-lang="no">🇳🇴 Norsk</a>
@@ -139,14 +157,14 @@
   </div>
 </div>
 
-<div class="bgimg-2" id="portfolio-header">
+<div class="bgimg-2">
     <span class="w3-xxlarge w3-text-white w3-wide" data-i18n="nav_portfolio">UPPDRAG</span>
 </div>
 
 <div class="w3-content w3-container w3-padding-64" id="portfolio">
   <h2 class="w3-center" data-i18n="cat_lecturer">Föreläsare</h2>
   <div id="container-lecturer"></div>
-  <br>
+  <br><hr><br>
   <h2 class="w3-center" data-i18n="cat_investigator">Utredare</h2>
   <div id="container-investigator"></div>
 </div>
@@ -163,7 +181,7 @@
   <div class="w3-xlarge w3-section">
     <a href="https://se.linkedin.com/in/jonas-walfridsson-45b07199" target="_blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
   </div>
-  <p>Built by <a href="https://www.logopedjobb.se" target="_blank" style="text-decoration:underline;">Logopedjobb.se</a></p>
+  <p>Built by <a href="https://www.logopedjobb.se" target="_blank" style="text-decoration:underline; color: white;">Logopedjobb.se</a></p>
 </footer>
 
 <script>
@@ -198,7 +216,7 @@ const translations = {
         nav_about: "OM", nav_portfolio: "OPPDRAG", nav_contact: "KONTAKT",
         about_title: "Logoped, utreder og foreleser innen dyskalkuli",
         about_text_1: "Siden 2013 har jeg jobbet med kvalifiserte utredninger på Danderyds sykehus.",
-        about_text_2: "Min lidenskap er å gjøre kunnskap tilgjengelig, og jeg er en flittig brukt foreleser.",
+        about_text_2: "Min lidenskap er å gjøre kunnskap tilgjengelig genom utdanning.",
         btn_book: "BOOK FORELESNING / KONTAKT",
         cat_lecturer: "Foreleser", cat_investigator: "Utreder",
         contact_text: "Velkommen til å ta kontakt ved forespørsler.",
@@ -210,7 +228,7 @@ const translations = {
         nav_about: "OM", nav_portfolio: "OPGAVER", nav_contact: "KONTAKT",
         about_title: "Logopæd, udreder og foredragsholder inden for dyskalkuli",
         about_text_1: "Siden 2013 har jeg arbejdet med kvalificerede udredninger på Danderyds sygehus.",
-        about_text_2: "Min passion er at gøre viden tilgængelig, og jeg er en flittigt anvendt foredragsholder.",
+        about_text_2: "Min passion er at gøre viden tilgængelig genom uddannelse.",
         btn_book: "BOOK FOREDRAG / KONTAKT",
         cat_lecturer: "Foredragsholder", cat_investigator: "Udreder",
         contact_text: "Velkommen til at kontakte mig ved forespørgsler.",
@@ -230,11 +248,12 @@ const translations = {
     }
 };
 
-// Event listener för språkklick (Robust för alla enheter)
+// Robust Event Listener för Chromebooks och mobiler
 document.addEventListener('click', function (e) {
-    if (e.target.closest('.lang-link')) {
+    const langBtn = e.target.closest('.lang-link');
+    if (langBtn) {
         e.preventDefault();
-        const lang = e.target.closest('.lang-link').getAttribute('data-lang');
+        const lang = langBtn.getAttribute('data-lang');
         setLanguage(lang);
         const demo = document.getElementById("navDemo");
         if (demo.className.indexOf("w3-show") != -1) toggleFunction();
@@ -248,7 +267,8 @@ function setLanguage(lang) {
         if (data[key]) el.textContent = data[key];
     });
     document.title = data.page_title;
-    document.getElementById('page-desc').content = data.page_desc;
+    const metaDesc = document.getElementById('page-desc');
+    if (metaDesc) metaDesc.content = data.page_desc;
     document.documentElement.lang = lang;
     window.history.pushState({}, '', '?lang=' + lang);
 }
@@ -270,7 +290,7 @@ async function renderPortfolio() {
                 `).join('');
             }
         }
-    } catch (e) { console.log("JSON Load error."); }
+    } catch (e) { console.error("JSON Error", e); }
 }
 
 function toggleFunction() {
