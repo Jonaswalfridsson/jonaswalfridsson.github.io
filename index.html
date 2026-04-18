@@ -54,8 +54,8 @@
     html { background-color: #f0f2f5; overflow-x: hidden; scroll-behavior: smooth; }
     body { font-family: "Lato", sans-serif; color: var(--text-color); line-height: 1.8; max-width: var(--page-max-width); margin: 0 auto; background-color: white; position: relative; }
     
-    /* STACKING CONTEXT & NAVIGATION FIXES
-       High z-index to ensure dropdowns appear over hero images. */
+    /* STACKING CONTEXT FIXES 
+       Ensures dropdowns render above hero images */
     .w3-top { 
         max-width: var(--page-max-width); 
         left: 50%; 
@@ -98,6 +98,7 @@
         text-decoration: none !important; 
         transition: all 0.3s ease;
         text-align: center;
+        margin-top: 20px;
     }
     .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(42, 111, 117, 0.3); }
 
@@ -106,7 +107,7 @@
 
     @media only screen and (max-width: 992px) { 
         .bgimg-1, .bgimg-2, .bgimg-3 { background-attachment: scroll; } 
-        .btn-cta { width: 90%; max-width: 300px; }
+        .btn-cta { width: 100%; box-sizing: border-box; }
     }
   </style>
 </head>
@@ -153,16 +154,17 @@
 </div>
 
 <div class="w3-content w3-container w3-padding-64" id="about">
-  <h2 class="w3-center" data-i18n="about_title">Speech Language Pathologist & Lecturer</h2>
+  <h2 class="w3-center" data-i18n="about_title">Logoped, utredare och föreläsare</h2>
   <div class="w3-row">
     <div class="w3-col m6 w3-padding-large">
-      <p data-i18n="about_text_1">Expert in dyscalculia investigations since 2013.</p>
-      <p data-i18n="about_text_2">Committed to making knowledge accessible through education and media.</p>
+      <p data-i18n="about_text_1">Sedan 2013 arbetar jag med kvalificerade utvärderingar på Danderyds sjukhus. Där möter och stöttar jag dagligen individer som kämpar med komplexa utmaningar kring matematik och siffror.</p>
+      <p data-i18n="about_text_2">Min passion är att göra kunskap tillgänglig, och jag är en flitigt anlitad föreläsare som utbildar skolor och verksamheter över hela landet. Genom att ständigt hålla mig ajour med den senaste forskningen ser jag till att mitt arbete vilar på en vetenskaplig grund.</p>
+      <p data-i18n="about_text_3">Jag medverkar även regelbundet som expert i media, bland annat i SVT, TV4 och SvD, för att bidra till en ökad förståelse för räknesvårigheter i samhället. Välkommen att kontakta mig för bokning av föreläsningar eller andra samarbeten kring dyskalkyli och matematiksvårigheter.</p>
       <br>
       <a href="#contact" class="btn-cta" data-i18n="btn_book">FÖRELÄSNING & SAMARBETE</a>
     </div>
     <div class="w3-col m6 w3-center w3-padding-large">
-      <img src="avatar_hat.jpg" alt="Jonas Walfridsson" style="width:100%; max-width:350px; border-radius:16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+      <img src="avatar_hat.jpg" alt="Jonas Walfridsson" style="width:100%; max-width:420px; border-radius:16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
     </div>
   </div>
 </div>
@@ -197,16 +199,17 @@
 <script>
 /**
  * TRANSLATION DATA
- * Optimized UX Copy for "Föreläsning & Samarbete"
+ * Complete set for Swedish and English
  */
 const translations = {
     sv: {
         page_title: "Jonas Walfridsson - Logoped & Föreläsare",
-        page_desc: "Expert på utredning av dyskalkyli och föreläsare.",
+        page_desc: "Expert på utredning av dyskalkyli och föreläsare inom matematiksvårigheter.",
         nav_about: "OM", nav_portfolio: "UPPDRAG", nav_contact: "KONTAKT",
-        about_title: "Logoped, utredare och föreläsare inom dyskalkyli",
-        about_text_1: "Sedan 2013 arbetar jag med kvalificerade utvärderingar på Danderyds sjukhus.",
-        about_text_2: "Min passion är att göra kunskap tillgänglig genom utbildningar.",
+        about_title: "Logoped, utredare och föreläsare",
+        about_text_1: "Sedan 2013 arbetar jag med kvalificerade utvärderingar på Danderyds sjukhus. Där möter och stöttar jag dagligen individer som kämpar med komplexa utmaningar kring matematik och siffror.",
+        about_text_2: "Min passion är att göra kunskap tillgänglig, och jag är en flitigt anlitad föreläsare som utbildar skolor och verksamheter över hela landet. Genom att ständigt hålla mig ajour med den senaste forskningen ser jag till att mitt arbete vilar på en vetenskaplig grund.",
+        about_text_3: "Jag medverkar även regelbundet som expert i media, bland annat i SVT, TV4 och SvD, för att bidra till en ökad förståelse för räknesvårigheter i samhället. Välkommen att kontakta mig för bokning av föreläsningar eller andra samarbeten kring dyskalkyli och matematiksvårigheter.",
         btn_book: "FÖRELÄSNING & SAMARBETE",
         cat_lecturer: "Föreläsare", cat_investigator: "Utredare",
         contact_text: "Välkommen att höra av dig vid förfrågningar.",
@@ -214,11 +217,12 @@ const translations = {
     },
     en: {
         page_title: "Jonas Walfridsson - SLP & Lecturer",
-        page_desc: "Speech Language Pathologist specializing in dyscalculia education.",
+        page_desc: "Speech Language Pathologist specializing in dyscalculia and numeracy difficulties.",
         nav_about: "ABOUT", nav_portfolio: "ASSIGNMENTS", nav_contact: "CONTACT",
         about_title: "Speech Language Pathologist & Lecturer",
-        about_text_1: "Since 2013, I have been conducting assessments at Danderyd Hospital.",
-        about_text_2: "My passion is making knowledge accessible globally.",
+        about_text_1: "Since 2013, I have been working with qualified assessments at Danderyd Hospital. There, I daily meet and support individuals struggling with complex challenges regarding mathematics and numbers.",
+        about_text_2: "My passion is making knowledge accessible, and I am a frequently hired lecturer educating schools and organizations nationwide. By constantly staying updated with the latest research, I ensure my work rests on a scientific foundation.",
+        about_text_3: "I also regularly participate as an expert in the media, including SVT, TV4, and SvD, to contribute to an increased understanding of numeracy difficulties in society. You are welcome to contact me for booking lectures or other collaborations regarding dyscalculia and mathematical difficulties.",
         btn_book: "LECTURES & COLLABORATION",
         cat_lecturer: "Lecturer", cat_investigator: "Investigator",
         contact_text: "Welcome to contact me for inquiries.",
@@ -229,27 +233,21 @@ const translations = {
         nav_about: "OM", nav_portfolio: "OPPDRAG", nav_contact: "KONTAKT",
         about_title: "Logoped, utreder og foreleser",
         btn_book: "FORELESNING & SAMARBEID",
-        cat_lecturer: "Foreleser", cat_investigator: "Utreder",
-        contact_text: "Velkommen til å ta kontakt.",
-        btn_email: "SEND E-POST"
+        cat_lecturer: "Foreleser", cat_investigator: "Utreder"
     },
     da: {
         page_title: "Jonas Walfridsson - Logopæd & Foredragsholder",
         nav_about: "OM", nav_portfolio: "OPGAVER", nav_contact: "KONTAKT",
         about_title: "Logopæd, udreder og foredragsholder",
         btn_book: "FOREDRAG & SAMARBEJDE",
-        cat_lecturer: "Foredragsholder", cat_investigator: "Udreder",
-        contact_text: "Velkommen til at kontakte mig.",
-        btn_email: "SEND E-MAIL"
+        cat_lecturer: "Foredragsholder", cat_investigator: "Udreder"
     },
     pt: {
         page_title: "Jonas Walfridsson - Fonoaudiólogo e Palestrante",
         nav_about: "SOBRE", nav_portfolio: "PORTFÓLIO", nav_contact: "CONTATO",
         about_title: "Fonoaudiólogo e Palestrante em Discalculia",
         btn_book: "PALESTRAS & COLABORAÇÃO",
-        cat_lecturer: "Palestrante", cat_investigator: "Investigador",
-        contact_text: "Bem-vindo a entrar em contato.",
-        btn_email: "ENVIAR E-MAIL"
+        cat_lecturer: "Palestrante", cat_investigator: "Investigador"
     }
 };
 
@@ -258,19 +256,24 @@ const translations = {
  */
 function setLanguage(lang) {
     const data = translations[lang] || translations['sv'];
+    
+    // Iterate through i18n tags
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (data[key]) el.textContent = data[key];
     });
+
+    // Update SEO Metadata
     document.title = data.page_title || "Jonas Walfridsson";
     const metaDesc = document.getElementById('page-desc');
     if (metaDesc && data.page_desc) metaDesc.content = data.page_desc;
+    
     document.documentElement.lang = lang;
     window.history.pushState({}, '', '?lang=' + lang);
 }
 
 /**
- * GLOBAL EVENT DELEGATION
+ * EVENT DELEGATION FOR LANGUAGE SWITCHER
  */
 document.addEventListener('click', function (e) {
     const langBtn = e.target.closest('.lang-link');
@@ -284,7 +287,7 @@ document.addEventListener('click', function (e) {
 });
 
 /**
- * DYNAMIC CONTENT RENDERING
+ * PORTFOLIO DATA RENDERING
  */
 async function renderPortfolio() {
     try {
@@ -304,7 +307,7 @@ async function renderPortfolio() {
                 `).join('');
             }
         }
-    } catch (e) { console.error("Data error", e); }
+    } catch (e) { console.error("Data Load Error:", e); }
 }
 
 function toggleFunction() {
@@ -313,7 +316,7 @@ function toggleFunction() {
 }
 
 /**
- * INITIALIZATION & BROWSER DETECTION
+ * BROWSER LANGUAGE DETECTION & INIT
  */
 window.onload = () => {
     const urlParams = new URLSearchParams(window.location.search);
