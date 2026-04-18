@@ -43,7 +43,6 @@
   <meta property="og:image" content="https://jonaswalfridsson.github.io/avatar_hat.jpg" />
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%232a6f75%22/></svg>">
-
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -58,126 +57,30 @@
         --radius: 8px;
     }
 
-    html { 
-        background-color: #f0f2f5; 
-        overflow-x: hidden; 
-        scroll-behavior: smooth; 
-    }
-
-    body {
-        font-family: "Lato", sans-serif;
-        color: var(--text-color);
-        line-height: 1.8;
-        max-width: var(--page-max-width);
-        margin: 0 auto;
-        background-color: white;
-        position: relative;
-    }
+    html { background-color: #f0f2f5; overflow-x: hidden; scroll-behavior: smooth; }
+    body { font-family: "Lato", sans-serif; color: var(--text-color); line-height: 1.8; max-width: var(--page-max-width); margin: 0 auto; background-color: white; position: relative; }
     
-    .w3-top {
-        max-width: var(--page-max-width);
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        z-index: 1000;
-    }
+    .w3-top { max-width: var(--page-max-width); left: 50%; transform: translateX(-50%); width: 100%; z-index: 1000; }
+    #myNavbar { background-color: rgba(255, 255, 255, 0.92) !important; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important; padding: 5px 0; }
+    #myNavbar a { font-weight: 700; color: var(--text-color) !important; background-color: transparent !important; }
+    #myNavbar a:hover { color: var(--accent-color) !important; }
 
-    #myNavbar {
-        background-color: rgba(255, 255, 255, 0.92) !important;
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
-        transition: all 0.3s ease;
-        padding: 5px 0;
-    }
-    
-    #myNavbar a {
-        font-weight: 700;
-        letter-spacing: 1px;
-        color: var(--text-color) !important;
-        background-color: transparent !important;
-        transition: color 0.3s ease;
-    }
-    
-    #myNavbar a:hover {
-        color: var(--accent-color) !important;
-        background-color: transparent !important;
-    }
-    
-    #navDemo a {
-        font-weight: 600;
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
+    .btn-cta { background-color: var(--accent-color); color: white !important; padding: 14px 32px; font-size: 16px; font-weight: 600; border-radius: 50px; cursor: pointer; display: inline-block; text-decoration: none !important; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(42, 111, 117, 0.3); }
+    .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(42, 111, 117, 0.4); }
 
-    h1 { font-family: "Lato", sans-serif; font-weight: 700; margin: 0; display: inline-block; }
-    h2 { font-weight: 400; letter-spacing: 1px; font-size: 32px; color: #222; margin-bottom: 40px; }
-    h3 { font-size: 22px; color: var(--accent-color); margin-bottom: 15px; }
-
-    a { color: var(--accent-color); text-decoration: none; transition: color 0.2s; }
-    a:hover { color: var(--accent-hover); text-decoration: underline; }
-
-    .btn-cta {
-        background-color: var(--accent-color);
-        color: white !important;
-        padding: 14px 32px;
-        font-size: 16px;
-        font-weight: 600;
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        display: inline-block;
-        margin-top: 20px;
-        text-decoration: none !important;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(42, 111, 117, 0.3);
-    }
-    .btn-cta:hover { 
-        background-color: var(--accent-hover); 
-        transform: translateY(-2px);
-    }
-
-    .event-container { max-width: 900px; margin: 0 auto; }
-    
-    .event-card {
-        background-color: #ffffff;
-        border-left: 6px solid var(--accent-color);
-        border-radius: var(--radius);
-        padding: 20px 25px;
-        margin-bottom: 20px;
-        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-        display: flex; 
-        flex-direction: column; 
-        transition: all 0.3s ease;
-        text-decoration: none !important;
-        border: 1px solid #eaeaea;
-    }
+    .event-card { background: #fff; border-left: 6px solid var(--accent-color); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; text-decoration: none !important; border: 1px solid #eaeaea; transition: transform 0.3s; }
     .event-card:hover { transform: translateY(-4px); }
-    
-    .event-date { font-size: 0.85em; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent-color); font-weight: 700; margin-bottom: 6px; }
-    .event-title { font-size: 1.2em; font-weight: 600; color: #222; margin-bottom: 4px; line-height: 1.4; }
-    .event-org { font-size: 1em; color: #666; }
+    .event-date { font-size: 0.85em; color: var(--accent-color); font-weight: 700; }
+    .event-title { font-size: 1.2em; font-weight: 600; color: #222; }
 
-    .bgimg-1, .bgimg-2, .bgimg-3 {
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('background.png');
-    }
-
+    .bgimg-1, .bgimg-2, .bgimg-3 { background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('background.png'); }
     .bgimg-1 { min-height: 50vh; display: flex; align-items: center; justify-content: center; }
-    .bgimg-2, .bgimg-3 { min-height: 400px; }
-    
-    .video-wrapper { max-width: 800px; margin: 0 auto 40px auto; }
-    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background-color: #000; border-radius: var(--radius); }
+    .bgimg-2, .bgimg-3 { min-height: 300px; display: flex; align-items: center; justify-content: center; }
+
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius); background: #000; }
     .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-    .lang-dropdown-content { min-width: 120px; cursor: pointer; border-radius: var(--radius); overflow: hidden; }
-
-    @media only screen and (max-width: 992px) {
-        html { background-color: white; }
-        .bgimg-1, .bgimg-2, .bgimg-3 { background-attachment: scroll; }
-    }
+    @media only screen and (max-width: 992px) { .bgimg-1, .bgimg-2, .bgimg-3 { background-attachment: scroll; } }
   </style>
 </head>
 <body>
@@ -187,49 +90,39 @@
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()">
       <i class="fa fa-bars"></i>
     </a>
-    
     <a href="#home" class="w3-bar-item w3-button w3-hide-small">HOME</a>
     <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> <span data-i18n="nav_about">OM</span></a>
     <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> <span data-i18n="nav_portfolio">UPPDRAG</span></a>
     <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> <span data-i18n="nav_contact">KONTAKT</span></a>
     
     <div class="w3-dropdown-hover w3-right w3-hide-small">
-      <button class="w3-button" title="Välj språk" style="background-color: transparent;">
-        <i class="fa fa-globe w3-large"></i> <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="w3-dropdown-content w3-bar-block w3-card-4 lang-dropdown-content" style="right:0">
-        <a href="?lang=sv" onclick="setLanguage('sv'); return false;" class="w3-bar-item w3-button">Svenska</a>
-        <a href="?lang=en" onclick="setLanguage('en'); return false;" class="w3-bar-item w3-button">English</a>
-        <a href="?lang=no" onclick="setLanguage('no'); return false;" class="w3-bar-item w3-button">Norsk</a>
-        <a href="?lang=da" onclick="setLanguage('da'); return false;" class="w3-bar-item w3-button">Dansk</a>
-        <a href="?lang=pt" onclick="setLanguage('pt'); return false;" class="w3-bar-item w3-button">Português</a>
+      <button class="w3-button" style="background-color: transparent;"><i class="fa fa-globe"></i> <i class="fa fa-caret-down"></i></button>
+      <div class="w3-dropdown-content w3-bar-block w3-card-4" style="right:0">
+        <a href="?lang=sv" class="w3-bar-item w3-button lang-link" data-lang="sv">Svenska</a>
+        <a href="?lang=en" class="w3-bar-item w3-button lang-link" data-lang="en">English</a>
+        <a href="?lang=no" class="w3-bar-item w3-button lang-link" data-lang="no">Norsk</a>
+        <a href="?lang=da" class="w3-bar-item w3-button lang-link" data-lang="da">Dansk</a>
+        <a href="?lang=pt" class="w3-bar-item w3-button lang-link" data-lang="pt">Português</a>
       </div>
     </div>
-    
-    <a href="#home" class="w3-bar-item w3-button w3-hide-large w3-hide-medium">Jonas Walfridsson</a>
   </div>
 
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-card-4">
-    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()" data-i18n="nav_about">OM</a>
-    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()" data-i18n="nav_portfolio">UPPDRAG</a>
-    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()" data-i18n="nav_contact">KONTAKT</a>
-    <div class="w3-light-grey w3-border-top">
-        <p class="w3-bar-item w3-text-grey w3-small" style="margin:0; padding-top:10px;">LANGUAGE</p>
-        <a href="?lang=sv" onclick="setLanguage('sv'); toggleFunction(); return false;" class="w3-bar-item w3-button">🇸🇪 Svenska</a>
-        <a href="?lang=en" onclick="setLanguage('en'); toggleFunction(); return false;" class="w3-bar-item w3-button">🇬🇧 English</a>
-        <a href="?lang=no" onclick="setLanguage('no'); toggleFunction(); return false;" class="w3-bar-item w3-button">🇳🇴 Norsk</a>
-        <a href="?lang=da" onclick="setLanguage('da'); toggleFunction(); return false;" class="w3-bar-item w3-button">🇩🇰 Dansk</a>
-        <a href="?lang=pt" onclick="setLanguage('pt'); toggleFunction(); return false;" class="w3-bar-item w3-button">🇵🇹 Português</a>
+    <a href="#about" class="w3-bar-item w3-button" data-i18n="nav_about">OM</a>
+    <a href="#portfolio" class="w3-bar-item w3-button" data-i18n="nav_portfolio">UPPDRAG</a>
+    <a href="#contact" class="w3-bar-item w3-button" data-i18n="nav_contact">KONTAKT</a>
+    <div class="w3-light-grey w3-padding-small">
+        <a href="?lang=sv" class="w3-bar-item w3-button lang-link" data-lang="sv">🇸🇪 Svenska</a>
+        <a href="?lang=en" class="w3-bar-item w3-button lang-link" data-lang="en">🇬🇧 English</a>
+        <a href="?lang=no" class="w3-bar-item w3-button lang-link" data-lang="no">🇳🇴 Norsk</a>
+        <a href="?lang=da" class="w3-bar-item w3-button lang-link" data-lang="da">🇩🇰 Dansk</a>
+        <a href="?lang=pt" class="w3-bar-item w3-button lang-link" data-lang="pt">🇵🇹 Português</a>
     </div>
   </div>
 </div>
 
-<div class="bgimg-1 w3-display-container" id="home">
-  <div class="w3-display-middle" style="white-space:nowrap; text-align: center;">
-    <h1 class="w3-animate-opacity" style="color: white; font-size: clamp(2.5rem, 5vw, 4rem); text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">
-      Jonas Walfridsson
-    </h1>
-  </div>
+<div class="bgimg-1" id="home">
+    <h1 style="color: white; font-size: clamp(2rem, 8vw, 4rem); text-shadow: 2px 2px 10px rgba(0,0,0,0.5);">Jonas Walfridsson</h1>
 </div>
 
 <div class="w3-content w3-container w3-padding-64" id="about">
@@ -238,63 +131,50 @@
     <div class="w3-col m6 w3-padding-large">
       <p data-i18n="about_text_1">Sedan 2013 arbetar jag med kvalificerade utvärderingar på Danderyds sjukhus.</p>
       <p data-i18n="about_text_2">Min passion är att göra kunskap tillgänglig...</p>
-      <p data-i18n="about_text_3">Jag medverkar även regelbundet som expert i media...</p>
-      <br>
       <a href="#contact" class="btn-cta" data-i18n="btn_book">BOKA FÖRELÄSNING / KONTAKT</a>
     </div>
     <div class="w3-col m6 w3-center w3-padding-large">
-      <img src="avatar_hat.jpg" alt="Jonas Walfridsson Logoped Dyskalkyli" style="width: 100%; max-width: 350px; height: auto; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+      <img src="avatar_hat.jpg" alt="Jonas Walfridsson" style="width:100%; max-width:350px; border-radius:16px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
     </div>
   </div>
 </div>
 
-<div class="bgimg-2 w3-display-container">
-  <div class="w3-display-middle">
-    <span class="w3-xxlarge w3-text-white w3-wide" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);" data-i18n="nav_portfolio">UPPDRAG</span>
-  </div>
+<div class="bgimg-2" id="portfolio-header">
+    <span class="w3-xxlarge w3-text-white w3-wide" data-i18n="nav_portfolio">UPPDRAG</span>
 </div>
 
 <div class="w3-content w3-container w3-padding-64" id="portfolio">
-  <h2 class="w3-center" data-i18n="cat_lecturer" style="font-size:28px; margin-bottom:30px;">Föreläsare</h2>
-  <div id="container-lecturer" class="event-container"></div>
-  <br><hr class="w3-opacity"><br>
-  <h2 class="w3-center" data-i18n="cat_investigator" style="font-size:28px; margin-bottom:30px;">Utredare</h2>
-  <div id="container-investigator" class="event-container"></div>
-  <br><hr class="w3-opacity"><br>
-  <h2 class="w3-center" style="font-size:28px; margin-bottom:30px;">Media</h2>
-  <div id="container-media" class="event-container"></div>
-</div>
-
-<div class="bgimg-3 w3-display-container">
-  <div class="w3-display-middle">
-     <span class="w3-xxlarge w3-text-white w3-wide" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);" data-i18n="nav_contact">KONTAKT</span>
-  </div>
+  <h2 class="w3-center" data-i18n="cat_lecturer">Föreläsare</h2>
+  <div id="container-lecturer"></div>
+  <br>
+  <h2 class="w3-center" data-i18n="cat_investigator">Utredare</h2>
+  <div id="container-investigator"></div>
 </div>
 
 <div class="w3-content w3-container w3-padding-64" id="contact">
-  <div class="w3-center w3-padding-32">
+  <div class="w3-center">
+    <h2 data-i18n="nav_contact">KONTAKT</h2>
     <p data-i18n="contact_text">Välkommen att höra av dig vid förfrågningar.</p>
     <a href="mailto:walfrid100@gmail.com" class="btn-cta"><i class="fa fa-paper-plane"></i> <span data-i18n="btn_email">SKICKA MAIL</span></a>
   </div>
 </div>
 
-<footer class="w3-center w3-padding-64 w3-opacity" style="background-color: #222; color: #fff;">
+<footer class="w3-center w3-padding-64 w3-black w3-opacity">
   <div class="w3-xlarge w3-section">
     <a href="https://se.linkedin.com/in/jonas-walfridsson-45b07199" target="_blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
   </div>
-  <p>Built by <a href="https://www.logopedjobb.se" target="_blank">Logopedjobb.se</a></p>
+  <p>Built by <a href="https://www.logopedjobb.se" target="_blank" style="text-decoration:underline;">Logopedjobb.se</a></p>
 </footer>
 
 <script>
 const translations = {
     sv: {
         page_title: "Jonas Walfridsson - Logoped & Föreläsare inom Dyskalkyli",
-        page_desc: "Legitimerad logoped Jonas Walfridsson. Expert på utredning av dyskalkyli och föreläsare.",
+        page_desc: "Expert på utredning av dyskalkyli och föreläsare.",
         nav_about: "OM", nav_portfolio: "UPPDRAG", nav_contact: "KONTAKT",
         about_title: "Logoped, utredare och föreläsare inom dyskalkyli",
         about_text_1: "Sedan 2013 arbetar jag med kvalificerade utvärderingar på Danderyds sjukhus.",
         about_text_2: "Min passion är att göra kunskap tillgänglig genom utbildningar.",
-        about_text_3: "Jag medverkar regelbundet i media som expert.",
         btn_book: "BOKA FÖRELÄSNING / KONTAKT",
         cat_lecturer: "Föreläsare", cat_investigator: "Utredare",
         contact_text: "Välkommen att höra av dig vid förfrågningar.",
@@ -307,22 +187,61 @@ const translations = {
         about_title: "Speech Language Pathologist & Lecturer",
         about_text_1: "Since 2013, I have been conducting assessments at Danderyd Hospital.",
         about_text_2: "My passion is making knowledge accessible globally.",
-        about_text_3: "I frequently appear in media as an expert.",
         btn_book: "BOOK LECTURE / CONTACT",
         cat_lecturer: "Lecturer", cat_investigator: "Investigator",
         contact_text: "Welcome to contact me for inquiries.",
         btn_email: "SEND EMAIL"
+    },
+    no: {
+        page_title: "Jonas Walfridsson - Logoped & Foreleser i Dyskalkuli",
+        page_desc: "Jonas Walfridsson er logoped med spisskompetanse innen utredning av dyskalkuli.",
+        nav_about: "OM", nav_portfolio: "OPPDRAG", nav_contact: "KONTAKT",
+        about_title: "Logoped, utreder og foreleser innen dyskalkuli",
+        about_text_1: "Siden 2013 har jeg jobbet med kvalifiserte utredninger på Danderyds sykehus.",
+        about_text_2: "Min lidenskap er å gjøre kunnskap tilgjengelig, og jeg er en flittig brukt foreleser.",
+        btn_book: "BOOK FORELESNING / KONTAKT",
+        cat_lecturer: "Foreleser", cat_investigator: "Utreder",
+        contact_text: "Velkommen til å ta kontakt ved forespørsler.",
+        btn_email: "SEND E-POST"
+    },
+    da: {
+        page_title: "Jonas Walfridsson - Logopæd & Foredragsholder i Dyskalkuli",
+        page_desc: "Jonas Walfridsson er logopæd med speciale i udredning af regnevanskeligheder.",
+        nav_about: "OM", nav_portfolio: "OPGAVER", nav_contact: "KONTAKT",
+        about_title: "Logopæd, udreder og foredragsholder inden for dyskalkuli",
+        about_text_1: "Siden 2013 har jeg arbejdet med kvalificerede udredninger på Danderyds sygehus.",
+        about_text_2: "Min passion er at gøre viden tilgængelig, og jeg er en flittigt anvendt foredragsholder.",
+        btn_book: "BOOK FOREDRAG / KONTAKT",
+        cat_lecturer: "Foredragsholder", cat_investigator: "Udreder",
+        contact_text: "Velkommen til at kontakte mig ved forespørgsler.",
+        btn_email: "SEND E-MAIL"
+    },
+    pt: {
+        page_title: "Jonas Walfridsson - Fonoaudiólogo e Palestrante em Discalculia",
+        page_desc: "Jonas Walfridsson é fonoaudiólogo especializado na avaliação de discalculia.",
+        nav_about: "SOBRE", nav_portfolio: "PORTFÓLIO", nav_contact: "CONTATO",
+        about_title: "Fonoaudiólogo, Investigador e Palestrante em Discalculia",
+        about_text_1: "Desde 2013, trabalho com avaliações qualificadas no Hospital Danderyd.",
+        about_text_2: "Minha paixão é tornar o conhecimento acessível, educando escolas em todo o país.",
+        btn_book: "AGENDAR PALESTRA / CONTATO",
+        cat_lecturer: "Palestrante", cat_investigator: "Investigador",
+        contact_text: "Bem-vindo a entrar em contato para consultas.",
+        btn_email: "ENVIAR E-MAIL"
     }
-    // ... Lägg till no, da, pt härifrån ditt tidigare skript
 };
 
-function setLanguage(lang) {
-    updateContent(lang);
-    const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?lang=' + lang;
-    window.history.pushState({path:newUrl}, '', newUrl);
-}
+// Event listener för språkklick (Robust för alla enheter)
+document.addEventListener('click', function (e) {
+    if (e.target.closest('.lang-link')) {
+        e.preventDefault();
+        const lang = e.target.closest('.lang-link').getAttribute('data-lang');
+        setLanguage(lang);
+        const demo = document.getElementById("navDemo");
+        if (demo.className.indexOf("w3-show") != -1) toggleFunction();
+    }
+});
 
-function updateContent(lang) {
+function setLanguage(lang) {
     const data = translations[lang] || translations['sv'];
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -331,39 +250,39 @@ function updateContent(lang) {
     document.title = data.page_title;
     document.getElementById('page-desc').content = data.page_desc;
     document.documentElement.lang = lang;
+    window.history.pushState({}, '', '?lang=' + lang);
 }
 
 async function renderPortfolio() {
     try {
         const response = await fetch('data.json');
         const data = await response.json();
-        const cats = {'lecturer': 'container-lecturer', 'investigator': 'container-investigator', 'media': 'container-media'};
-        
+        const cats = {'lecturer': 'container-lecturer', 'investigator': 'container-investigator'};
         for (const [key, id] of Object.entries(cats)) {
             const container = document.getElementById(id);
-            if (!container || !data[key]) continue;
-            container.innerHTML = data[key].map(item => `
-                <${item.link ? 'a href="'+item.link+'" target="_blank"' : 'div'} class="event-card">
-                    ${item.date ? `<span class="event-date">${item.date}</span>` : ''}
-                    <span class="event-title">${item.title}</span>
-                    ${item.org ? `<span class="event-org">${item.org}</span>` : ''}
-                </${item.link ? 'a' : 'div'}>
-            `).join('');
+            if (container && data[key]) {
+                container.innerHTML = data[key].map(item => `
+                    <${item.link ? 'a href="'+item.link+'" target="_blank"' : 'div'} class="event-card">
+                        ${item.date ? `<span class="event-date">${item.date}</span>` : ''}
+                        <span class="event-title">${item.title}</span>
+                        ${item.org ? `<span class="event-org">${item.org}</span>` : ''}
+                    </${item.link ? 'a' : 'div'}>
+                `).join('');
+            }
         }
-    } catch (e) { console.error("Data error", e); }
+    } catch (e) { console.log("JSON Load error."); }
 }
-
-window.onload = () => {
-    const lang = new URLSearchParams(window.location.search).get('lang') || 'sv';
-    updateContent(lang);
-    renderPortfolio();
-};
 
 function toggleFunction() {
     var x = document.getElementById("navDemo");
     x.className = x.className.indexOf("w3-show") == -1 ? x.className + " w3-show" : x.className.replace(" w3-show", "");
 }
-</script>
 
+window.onload = () => {
+    const lang = new URLSearchParams(window.location.search).get('lang') || 'sv';
+    setLanguage(lang);
+    renderPortfolio();
+};
+</script>
 </body>
 </html>
