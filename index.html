@@ -44,18 +44,40 @@
   
   <style>
     :root {
+        /* COLOR PALETTE */
         --accent-color: #2a6f75; 
         --accent-hover: #1f5459;
-        --text-color: #4a4a4a;
-        --page-max-width: 1200px;
-        --radius: 8px;
+        --text-color: #334155; /* Slightly darker for maximum readability (WCAG) */
+        --light-bg: #f8fafc;
+        --warm-bg: #fdfbf7; /* New! A very soft, warm tone for sections */
+        
+        /* DESIGN TOKENS */
+        --page-max-width: 1000px; /* Narrower to prevent text lines from becoming too wide */
+        --radius-small: 12px;
+        --radius-large: 24px;
+        --shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08); /* Modern, soft shadow */
+        --shadow-hover: 0 20px 40px -10px rgba(42, 111, 117, 0.15);
     }
 
-    html { background-color: #f0f2f5; overflow-x: hidden; scroll-behavior: smooth; }
-    body { font-family: "Lato", sans-serif; color: var(--text-color); line-height: 1.8; max-width: var(--page-max-width); margin: 0 auto; background-color: white; position: relative; }
+    html { background-color: var(--light-bg); overflow-x: hidden; scroll-behavior: smooth; }
     
-    /* STACKING CONTEXT FIXES 
-       Ensures dropdowns render above hero images */
+    body { 
+        font-family: "Lato", sans-serif; 
+        color: var(--text-color); 
+        line-height: 1.85; /* Increased for better readability */
+        font-size: 1.1rem; /* Slightly larger base text */
+        max-width: var(--page-max-width); 
+        margin: 0 auto; 
+        background-color: var(--warm-bg); 
+        position: relative; 
+    }
+    
+    /* TYPOGRAPHY */
+    h1, h2, h3 { font-family: "Lato", sans-serif; color: #0f172a; }
+    h2 { font-weight: 700; letter-spacing: -0.5px; font-size: 2.2rem; margin-bottom: 2rem; }
+    p { margin-bottom: 1.5rem; }
+
+    /* NAVIGATION */
     .w3-top { 
         max-width: var(--page-max-width); 
         left: 50%; 
@@ -64,16 +86,23 @@
         z-index: 99999 !important; 
         position: fixed;
     }
-    
     #myNavbar, .w3-bar, .w3-dropdown-hover { overflow: visible !important; }
+    #myNavbar { 
+        background-color: rgba(253, 251, 247, 0.96) !important; /* Matches the warm background */
+        backdrop-filter: blur(12px); /* Stronger blur effect for a premium look */
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
 
     .w3-dropdown-content { 
         z-index: 100000 !important; 
         background-color: #ffffff !important;
         min-width: 160px;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.15) !important;
+        border-radius: var(--radius-small);
+        box-shadow: var(--shadow-soft) !important;
+        overflow: hidden;
     }
 
+    /* HERO SECTION */
     .bgimg-1, .bgimg-2, .bgimg-3 { 
         position: relative;
         z-index: 1; 
@@ -81,30 +110,68 @@
         background-position: center; 
         background-repeat: no-repeat; 
         background-size: cover; 
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('background.png');
+    }
+    .bgimg-1 { 
+        min-height: 70vh; /* A bit taller for more 'impact' */
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        /* Softer gradient for a more modern appearance */
+        background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 0.7)), url('background.png');
+        border-radius: 0 0 var(--radius-large) var(--radius-large); /* Rounder corners at the bottom */
     }
 
-    .bgimg-1 { min-height: 60vh; display: flex; align-items: center; justify-content: center; }
-    #myNavbar { background-color: rgba(255, 255, 255, 0.96) !important; backdrop-filter: blur(8px); }
-    
+    /* CALL TO ACTION BUTTONS */
     .btn-cta { 
         background-color: var(--accent-color); 
         color: white !important; 
-        padding: 14px 32px; 
-        font-weight: 600; 
+        padding: 16px 40px; 
+        font-size: 1.1rem;
+        font-weight: 700; 
+        letter-spacing: 0.5px;
         border-radius: 50px; 
         cursor: pointer; 
         display: inline-block; 
         text-decoration: none !important; 
-        transition: all 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Softer animation curve */
         text-align: center;
-        margin-top: 20px;
+        margin-top: 10px;
+        box-shadow: 0 4px 14px 0 rgba(42, 111, 117, 0.39);
     }
-    .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(42, 111, 117, 0.3); }
+    .btn-cta:hover { 
+        transform: translateY(-3px); 
+        box-shadow: 0 6px 20px rgba(42, 111, 117, 0.23); 
+        background-color: var(--accent-hover);
+    }
 
-    .event-card { background: #fff; border-left: 6px solid var(--accent-color); padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; text-decoration: none !important; border: 1px solid #eaeaea; transition: 0.3s; }
-    .event-card:hover { transform: translateY(-3px); }
+    /* PORTFOLIO CARDS */
+    .event-card { 
+        background: #ffffff; 
+        border-left: 6px solid var(--accent-color); 
+        padding: 24px 30px; 
+        margin-bottom: 20px; 
+        border-radius: var(--radius-small);
+        box-shadow: var(--shadow-soft); 
+        display: flex; 
+        flex-direction: column; 
+        text-decoration: none !important; 
+        border: 1px solid rgba(0,0,0,0.03); 
+        transition: all 0.3s ease; 
+    }
+    .event-card:hover { 
+        transform: translateY(-4px); 
+        box-shadow: var(--shadow-hover); 
+        border-color: rgba(42, 111, 117, 0.2);
+    }
+    .event-title { font-size: 1.25rem; font-weight: 700; color: #0f172a; margin: 4px 0; }
 
+    /* PROFILE IMAGE */
+    #about img {
+        border-radius: var(--radius-large);
+        box-shadow: var(--shadow-soft);
+    }
+
+    /* RESPONSIVE DESIGN */
     @media only screen and (max-width: 992px) { 
         .bgimg-1, .bgimg-2, .bgimg-3 { background-attachment: scroll; } 
         .btn-cta { width: 100%; box-sizing: border-box; }
@@ -119,9 +186,9 @@
       <i class="fa fa-bars"></i>
     </a>
     <a href="#home" class="w3-bar-item w3-button w3-hide-small">HOME</a>
-    <a href="#about" class="w3-bar-item w3-button w3-hide-small" data-i18n="nav_about">ABOUT</a>
-    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small" data-i18n="nav_portfolio">ASSIGNMENTS</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-hide-small" data-i18n="nav_contact">CONTACT</a>
+    <a href="#about" class="w3-bar-item w3-button w3-hide-small" data-i18n="nav_about">OM</a>
+    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small" data-i18n="nav_portfolio">UPPDRAG</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small" data-i18n="nav_contact">KONTAKT</a>
     
     <div class="w3-dropdown-hover w3-right w3-hide-small">
       <button class="w3-button" style="background-color: transparent;"><i class="fa fa-globe"></i> <i class="fa fa-caret-down"></i></button>
@@ -140,6 +207,7 @@
     <a href="#portfolio" class="w3-bar-item w3-button" data-i18n="nav_portfolio" onclick="toggleFunction()">ASSIGNMENTS</a>
     <a href="#contact" class="w3-bar-item w3-button" data-i18n="nav_contact" onclick="toggleFunction()">CONTACT</a>
     <div class="w3-light-grey w3-padding-small">
+        <p class="w3-small w3-margin-left">LANGUAGE</p>
         <a href="?lang=sv" class="w3-bar-item w3-button lang-link" data-lang="sv">🇸🇪 Svenska</a>
         <a href="?lang=en" class="w3-bar-item w3-button lang-link" data-lang="en">🇬🇧 English</a>
         <a href="?lang=no" class="w3-bar-item w3-button lang-link" data-lang="no">🇳🇴 Norsk</a>
@@ -164,13 +232,13 @@
       <a href="#contact" class="btn-cta" data-i18n="btn_book">FÖRELÄSNING & SAMARBETE</a>
     </div>
     <div class="w3-col m6 w3-center w3-padding-large">
-      <img src="avatar_hat.jpg" alt="Jonas Walfridsson" style="width:100%; max-width:420px; border-radius:16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+      <img src="profile.jpg" alt="Jonas Walfridsson" style="width:100%; max-width:420px; border-radius:16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
     </div>
   </div>
 </div>
 
 <div class="bgimg-2">
-    <span class="w3-xxlarge w3-text-white w3-wide" data-i18n="nav_portfolio">ASSIGNMENTS</span>
+    <span class="w3-xxlarge w3-text-white w3-wide" data-i18n="nav_portfolio">UPPDRAG</span>
 </div>
 
 <div class="w3-content w3-container w3-padding-64" id="portfolio">
@@ -197,16 +265,15 @@
 </footer>
 
 <script>
-/**
- * TRANSLATION DATA
- * Complete set for Swedish and English
+/** * TRANSLATION DATA
+ * Add your specific text content here for each language 
  */
 const translations = {
     sv: {
         page_title: "Jonas Walfridsson - Logoped & Föreläsare",
         page_desc: "Expert på utredning av dyskalkyli och föreläsare inom matematiksvårigheter.",
         nav_about: "OM", nav_portfolio: "UPPDRAG", nav_contact: "KONTAKT",
-        about_title: "Logoped, utredare och föreläsare",
+        about_title: "Logoped, utredare och föreläsare inom dyskalkyli",
         about_text_1: "Sedan 2013 arbetar jag med kvalificerade utvärderingar på Danderyds sjukhus. Där möter och stöttar jag dagligen individer som kämpar med komplexa utmaningar kring matematik och siffror.",
         about_text_2: "Min passion är att göra kunskap tillgänglig, och jag är en flitigt anlitad föreläsare som utbildar skolor och verksamheter över hela landet. Genom att ständigt hålla mig ajour med den senaste forskningen ser jag till att mitt arbete vilar på en vetenskaplig grund.",
         about_text_3: "Jag medverkar även regelbundet som expert i media, bland annat i SVT, TV4 och SvD, för att bidra till en ökad förståelse för räknesvårigheter i samhället. Välkommen att kontakta mig för bokning av föreläsningar eller andra samarbeten kring dyskalkyli och matematiksvårigheter.",
@@ -253,27 +320,32 @@ const translations = {
 
 /**
  * CORE LANGUAGE LOGIC
+ * Updates DOM elements based on selected language and updates URL state
  */
 function setLanguage(lang) {
     const data = translations[lang] || translations['sv'];
     
-    // Iterate through i18n tags
+    // Update all elements with data-i18n attribute
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (data[key]) el.textContent = data[key];
     });
 
-    // Update SEO Metadata
+    // Update Meta Title and Description for SEO
     document.title = data.page_title || "Jonas Walfridsson";
     const metaDesc = document.getElementById('page-desc');
     if (metaDesc && data.page_desc) metaDesc.content = data.page_desc;
     
+    // Update HTML lang attribute for screen readers
     document.documentElement.lang = lang;
+    
+    // Sync URL without refreshing the page
     window.history.pushState({}, '', '?lang=' + lang);
 }
 
 /**
- * EVENT DELEGATION FOR LANGUAGE SWITCHER
+ * GLOBAL EVENT LISTENERS
+ * Handles language switching via event delegation
  */
 document.addEventListener('click', function (e) {
     const langBtn = e.target.closest('.lang-link');
@@ -281,13 +353,15 @@ document.addEventListener('click', function (e) {
         e.preventDefault();
         const lang = langBtn.getAttribute('data-lang');
         setLanguage(lang);
+        // Auto-close mobile menu if open
         const demo = document.getElementById("navDemo");
         if (demo.className.indexOf("w3-show") != -1) toggleFunction();
     }
 });
 
 /**
- * PORTFOLIO DATA RENDERING
+ * PORTFOLIO RENDERING
+ * Fetches data from data.json and injects cards into the DOM
  */
 async function renderPortfolio() {
     try {
@@ -307,21 +381,28 @@ async function renderPortfolio() {
                 `).join('');
             }
         }
-    } catch (e) { console.error("Data Load Error:", e); }
+    } catch (e) { 
+        console.error("Portfolio Data Load Error:", e); 
+    }
 }
 
+/**
+ * MOBILE UI CONTROLS
+ */
 function toggleFunction() {
     var x = document.getElementById("navDemo");
     x.className = x.className.indexOf("w3-show") == -1 ? x.className + " w3-show" : x.className.replace(" w3-show", "");
 }
 
 /**
- * BROWSER LANGUAGE DETECTION & INIT
+ * INITIALIZATION & BROWSER DETECTION
+ * Runs on page load to detect language and render dynamic content
  */
 window.onload = () => {
     const urlParams = new URLSearchParams(window.location.search);
     let lang = urlParams.get('lang');
 
+    // Browser Language Detection Logic
     if (!lang) {
         const browserLang = (navigator.language || navigator.userLanguage).substring(0, 2);
         const supported = ['sv', 'en', 'no', 'da', 'pt'];
