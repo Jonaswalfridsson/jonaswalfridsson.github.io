@@ -1,27 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-
-<url>
-  <loc>https://www.jonaswalfridsson.se/</loc>
-  <lastmod>2024-08-24T10:46:50+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://www.jonaswalfridsson.se/index2.html</loc>
-  <lastmod>2024-08-24T10:46:50+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.jonaswalfridsson.se/index.html</loc>
-  <lastmod>2024-08-24T10:46:50+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
+  <url>
+    <loc>https://jonaswalfridsson.se/</loc>
+    <lastmod>2024-08-24</lastmod>
+    <priority>1.00</priority>
+    
+    <xhtml:link rel="alternate" hreflang="sv" href="https://jonaswalfridsson.se/?lang=sv" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://jonaswalfridsson.se/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://jonaswalfridsson.se/?lang=no" />
+    <xhtml:link rel="alternate" hreflang="da" href="https://jonaswalfridsson.se/?lang=da" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jonaswalfridsson.se/?lang=pt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jonaswalfridsson.se/" />
+  </url>
 
 </urlset>
